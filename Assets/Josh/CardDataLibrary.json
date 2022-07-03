@@ -1,0 +1,12 @@
+{
+	"cardDataLibrary": [
+		{
+			"cardName": "cardZero",
+            "cardDescription": "zero description"
+		},
+		{
+            "cardName": "paunch",
+            "cardDescription": "I Paunch"
+		}
+	]
+}
