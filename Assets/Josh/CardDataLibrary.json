@@ -7,6 +7,10 @@
 		{
             "cardName": "paunch",
             "cardDescription": "I Paunch"
+		},
+		{
+            "cardName": "kick",
+            "cardDescription": "kcik you with my leg"
 		}
 	]
 }

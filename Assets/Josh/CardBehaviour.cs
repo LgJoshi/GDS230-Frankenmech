@@ -8,7 +8,9 @@ public class CardBehaviour : MonoBehaviour
     [SerializeField] TextMeshPro cardTextName;
     [SerializeField] TextMeshPro cardTextDesc;
 
-    int myCardId=0;
+    CardLibrary cardLibrary;
+
+    int myCardId=2;
     string myCardName="myCardName";
     string myCardDesc="myCardDesc";
 
@@ -16,6 +18,9 @@ public class CardBehaviour : MonoBehaviour
     void Start()
     {
         //Generate random card id
+        cardLibrary = FindObjectOfType<CardLibrary>();
+        myCardName = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardName;
+        myCardDesc = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardDescription;
         UpdateCardFace();
     }
 
