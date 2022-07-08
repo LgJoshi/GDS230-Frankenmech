@@ -824,9 +824,10 @@ GameObject:
   - component: {fileID: 1808667397}
   - component: {fileID: 1808667396}
   - component: {fileID: 1808667398}
+  - component: {fileID: 1808667399}
   m_Layer: 0
   m_Name: CardBase
-  m_TagString: Untagged
+  m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -916,6 +917,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardTextName: {fileID: 537394372}
   cardTextDesc: {fileID: 280445551}
+--- !u!65 &1808667399
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808667395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 3.5, z: 0.20000003}
+  m_Center: {x: 0, y: 0, z: 0.000000029802322}
 --- !u!1 &1858098688
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1858098690}
   - component: {fileID: 1858098689}
+  - component: {fileID: 1858098691}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -962,6 +977,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1858098691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858098688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168bc7c2715c1f04cb1884e3e38f8cef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbedObject: {fileID: 0}
 --- !u!1 &1984446974
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class CardLibrary : MonoBehaviour
         public string cardName = "default cardName";
         public string cardDescription = "default cardDescription";
         public int cardCost = 99;
-        public int cardId = 999;
+        public int cardID = 999;
     }
 
     [System.Serializable]

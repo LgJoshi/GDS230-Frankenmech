@@ -2,7 +2,8 @@
 	"cardDataLibrary": [
 		{
 			"cardName": "cardZero",
-            "cardDescription": "zero description"
+            "cardDescription": "zero description",
+			"cardID": 0
 		},
 		{
             "cardName": "paunch",
