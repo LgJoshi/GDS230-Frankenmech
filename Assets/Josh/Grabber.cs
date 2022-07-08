@@ -6,18 +6,28 @@ public class Grabber : MonoBehaviour
 {
     public GameObject grabbedObject;
     
+    Vector3 grabbedObjectOrigin; 
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0)){
             if (grabbedObject==null){
-                RaycastHit hit = CastRay();
+                RaycastHit hit = MouseCastRay();
 
                 if (hit.collider!=null){
                     if (!hit.collider.CompareTag("Card")){
                         return;
                     }
+                    
                     grabbedObject = hit.collider.gameObject;
+                    grabbedObjectOrigin = grabbedObject.transform.position;
                 }
+            }
+        }
+        
+        if (Input.GetMouseButtonUp(0)){
+            if (grabbedObject!=null){
+                OnMouseUp();
             }
         }
 
@@ -29,7 +39,7 @@ public class Grabber : MonoBehaviour
     }
 
     // Update is called once per frame
-    private RaycastHit CastRay(){
+    private RaycastHit MouseCastRay(){
         Vector3 mousePosFar = new Vector3 (
             Input.mousePosition.x, 
             Input.mousePosition.y, 
@@ -47,4 +57,19 @@ public class Grabber : MonoBehaviour
 
         return hit;
     }
+
+    void OnMouseUp(){
+        if (grabbedObject!=null){
+            
+            
+
+            Raycast hit = MouseCastRay();
+
+
+            grabbedObject = null;
+
+
+        }
+    }
+
 }
