@@ -4,28 +4,51 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class CardBehaviour : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class CardBehaviour : MonoBehaviour
 {
     [SerializeField] TextMeshPro cardTextName;
     [SerializeField] TextMeshPro cardTextDesc;
 
-    CardLibrary cardLibrary;
+    public CardLibrary cardLibrary;
 
-    int myCardId=2;
+    //card's position in the hand int list
+    public int myHandId = 0;
+
+    int myCardId=0;
     string myCardName="myCardName";
     string myCardDesc="myCardDesc";
+    public string myEffect="myEffect";
+    public int myEffectInt = 0;
 
+    private void OnEnable()
+    {
+        EventManager.CardDrawEvent += UpdateCardFace;
+    }
+    private void OnDisable()
+    {
+        //might be useless
+        EventManager.CardDrawEvent -= UpdateCardFace;
+    }
 
     void Start()
     {
         //Generate random card id
-        cardLibrary = FindObjectOfType<CardLibrary>();
-        myCardName = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardName;
-        myCardDesc = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardDescription;
+        //UpdateCardFace();
+        Debug.Log(this.name + " instantiated");
+    }
+
+    public void GetNewId(int newId )
+    {
+        myCardId = newId;
         UpdateCardFace();
     }
 
     void UpdateCardFace(){
+        myCardName = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardName;
+        myCardDesc = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardDescription;
+        myEffect = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardEffect;
+        myEffectInt = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardEffectInt;
+
         UpdateName();
         UpdateDesc();
     }
@@ -33,22 +56,14 @@ public class CardBehaviour : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     void UpdateName(){
         cardTextName.text = myCardName;
     }
+
     void UpdateDesc(){
         cardTextDesc.text = myCardDesc;
     }
+
     void UpdateCost(){
 
     }
 
-    public void OnBeginDrag(PointerEventData eventData){
-        Debug.Log("start dragging");
-    }
-
-    public void OnDrag(PointerEventData eventData){
-        Debug.Log("dragging");
-    }
-
-    public void OnEndDrag(PointerEventData eventData){
-        Debug.Log("end dragging");
-    }
+    
 }

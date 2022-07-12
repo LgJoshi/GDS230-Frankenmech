@@ -6,12 +6,45 @@
 			"cardID": 0
 		},
 		{
-            "cardName": "paunch",
-            "cardDescription": "I Paunch"
+            "cardName": "first card",
+            "cardDescription": "Increase stat by 5",
+			"cardID": 1,
+			"cardEffect": "statChange",
+			"cardEffectInt": 5
 		},
 		{
-            "cardName": "kick",
-            "cardDescription": "kcik you with my leg"
+            "cardName": "second card",
+            "cardDescription": "chagne stat by 10",
+			"cardID": 2,
+			"cardEffect": "statChange",
+			"cardEffectInt": 10
+		},
+		{
+			"cardName": "third card",
+            "cardDescription": "multiply stat by 2",
+			"cardID": 3,
+			"cardEffect": "statMultiply",
+			"cardEffectInt": 2
+		},
+		{
+			"cardName": "fourth",
+            "cardDescription": "zero description",
+			"cardID": 4
+		},
+		{
+			"cardName": "fifth",
+            "cardDescription": "zero description",
+			"cardID": 5
+		},
+		{
+			"cardName": "sixth",
+            "cardDescription": "zero description",
+			"cardID": 6
+		},
+		{
+			"cardName": "seventh",
+            "cardDescription": "zero description",
+			"cardID": 7
 		}
 	]
 }

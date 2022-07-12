@@ -14,6 +14,8 @@ public class CardLibrary : MonoBehaviour
         public string cardDescription = "default cardDescription";
         public int cardCost = 99;
         public int cardID = 999;
+        public string cardEffect = "default effect";
+        public int cardEffectInt = 0;
     }
 
     [System.Serializable]
@@ -27,7 +29,7 @@ public class CardLibrary : MonoBehaviour
         jsonString = File.ReadAllText( "Assets/Josh/" + "CardDataLibrary.json" );
         Debug.Log("jsonstring is: " + jsonString);
         cardLibraryArray = JsonUtility.FromJson<CardDataLibrary>(jsonString);
-        Debug.Log(cardLibraryArray.cardDataLibrary[1].cardName);
+        //Debug.Log(cardLibraryArray.cardDataLibrary[1].cardName);
         //Debug.Log(cardLibraryArray.cardDataLibrary.Count);
     }
 

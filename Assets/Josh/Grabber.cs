@@ -6,8 +6,15 @@ public class Grabber : MonoBehaviour
 {
     public GameObject grabbedObject;
     
-    Vector3 grabbedObjectOrigin; 
+    Vector3 grabbedObjectOrigin;
+    int layer_mask;
     
+    void Start()
+    { 
+        layer_mask = LayerMask.GetMask("Card");
+        Debug.Log("layer_mask: " + layer_mask);
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0)){
@@ -21,6 +28,8 @@ public class Grabber : MonoBehaviour
                     
                     grabbedObject = hit.collider.gameObject;
                     grabbedObjectOrigin = grabbedObject.transform.position;
+
+                    layer_mask = LayerMask.GetMask("CardInteractable");
                 }
             }
         }
@@ -53,21 +62,37 @@ public class Grabber : MonoBehaviour
         Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(mousePosFar);
         Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(mousePosNear);
         RaycastHit hit;
-        Physics.Raycast(worldMousePosNear, worldMousePosFar-worldMousePosNear, out hit);
+        //Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit, 50f);
+        Physics.Raycast(worldMousePosNear, worldMousePosFar-worldMousePosNear, out hit, 50f, layer_mask);
+
+        if ( hit.collider != null )
+        {
+            Debug.Log("Grabber raycast hit: " + hit.collider.gameObject);
+        }
 
         return hit;
+        
     }
 
     void OnMouseUp(){
         if (grabbedObject!=null){
-            
-            
 
-            Raycast hit = MouseCastRay();
+            RaycastHit hit = MouseCastRay();
 
+            if( hit.collider != null )
+            {
+                CardBehaviour objCardBehaviour = grabbedObject.GetComponent<CardBehaviour>();
+                hit.collider.gameObject.GetComponent<MechPart>().CardUsed(objCardBehaviour.myEffect, objCardBehaviour.myEffectInt);
+                EventManager.CardPlayedFunction(objCardBehaviour.myHandId);
+
+            } else
+            {
+                grabbedObject.transform.position = grabbedObjectOrigin;
+            }
+
+            layer_mask = LayerMask.GetMask("Card");
 
             grabbedObject = null;
-
 
         }
     }
