@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
         playerDeck.Add(3);
         playerDeck.Add(1);
         playerDeck.Add(2);
+        playerDeck.Add(0);
     }
 
     private void Update()
