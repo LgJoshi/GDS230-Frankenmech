@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 188021393}
   - component: {fileID: 188021397}
   m_Layer: 0
-  m_Name: Basic Enemy Event
+  m_Name: Basic Enemy Or Item Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
