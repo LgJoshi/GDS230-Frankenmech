@@ -8,9 +8,12 @@ public class MechPart : MonoBehaviour
     public int damageDealt=5;
 
     [SerializeField] TextMeshPro myUI;
+    PlayerManager playerManager;
 
     private void Start()
     {
+        playerManager = GetComponentInParent(typeof(PlayerManager)) as PlayerManager;
+        playerManager.mechParts.Add(this.GetComponent<MechPart>());
         UpdateUI();
     }
 

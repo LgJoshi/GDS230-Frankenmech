@@ -10,6 +10,7 @@ public class BattleSystem : MonoBehaviour
     public BattleState state;
     public GameObject playerPrefab;
     public GameObject[] enemyPrefab;
+    [SerializeField] PlayerManager playerManager;
 
     
 
@@ -60,19 +61,20 @@ public class BattleSystem : MonoBehaviour
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
+        playerManager.DrawCards();
 
     }
 
     IEnumerator PlayerAttack()
     {
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        bool isDead = enemyUnit.TakeDamage(playerManager.MechStatCheck());
 
         enemyHUD.SetHp(enemyUnit.currHealth);
 
 
         yield return new WaitForSeconds(2f);
 
-        enemyUnit.TakeDamage(playerUnit.damage);
+        enemyUnit.TakeDamage(playerManager.MechStatCheck());
 
         if (isDead)
         {
@@ -115,20 +117,14 @@ public class BattleSystem : MonoBehaviour
                 bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
                 playerHUD.SetHp(playerUnit.currHealth);
 
-                yield return new WaitForSeconds(2f);
-                state = BattleState.PLAYERTURN;
-
-                dialogueText.text = "Player 1 Turn ";
-
             }
             else
             {
                Debug.Log ("Healed");
-                yield return new WaitForSeconds(2f);
-                state = BattleState.PLAYERTURN;
+                
 
-                dialogueText.text = "Player 1 Turn ";
             }
+            yield return new WaitForSeconds(2f);
 
             //bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
 
@@ -144,6 +140,13 @@ public class BattleSystem : MonoBehaviour
             {
                 state = BattleState.LOST;
                 EndBattle();
+            } else{
+                
+                state = BattleState.PLAYERTURN;
+
+                playerManager.DrawCards();
+
+                dialogueText.text = "Player 1 Turn ";
             }
 
         }
@@ -163,6 +166,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnAttackButton()
     {
+        Debug.Log("OnAttackButton");
         if (state != BattleState.PLAYERTURN)
             return;
 

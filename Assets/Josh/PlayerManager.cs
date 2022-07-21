@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
     public int playHP = 50;
+    [SerializeField] TextMeshProUGUI uiPlayerHP;
+    
     int cardDrawPower = 3;
 
     [SerializeField] GameObject cardPrefab;
@@ -13,6 +16,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<int> playerDeck;
     [SerializeField] List<int> playerHand;
     [SerializeField] List<int> playerDiscard;
+
+    [SerializeField] public List<MechPart> mechParts;
 
     [SerializeField] List<GameObject> spawnedCards;
     [SerializeField] Transform handStart;
@@ -36,6 +41,8 @@ public class PlayerManager : MonoBehaviour
         playerDeck.Add(1);
         playerDeck.Add(2);
         playerDeck.Add(0);
+
+        uiPlayerHP.text = playHP.ToString();
     }
 
     private void Update()
@@ -43,11 +50,10 @@ public class PlayerManager : MonoBehaviour
         if( Input.GetKeyDown("f") )
         {
             DrawCards();
-            EventManager.CardDrawFunction();
         }
     }
 
-    void DrawCards()
+    public void DrawCards()
     {
         //discards the hand to the discard pile
         for( int i = spawnedCards.Count;i > 0;i-- )
@@ -101,6 +107,8 @@ public class PlayerManager : MonoBehaviour
                 ShuffleDeck();
             }
         }
+
+        EventManager.CardDrawFunction();
     }
 
     void UpdateHand(int input)
@@ -132,5 +140,21 @@ public class PlayerManager : MonoBehaviour
             playerDeck[i-1] = value;
         }
         Debug.Log("shuffle deck");
+    }
+
+    public int MechStatCheck(){
+        int mechStatTotal=0;
+
+        for( int i = 0;i < mechParts.Count;i++ )
+        {
+            mechStatTotal += mechParts[i].damageDealt;
+        }
+
+        return mechStatTotal;
+    }
+
+    public void TakeDamage(int input){
+        playHP+=input;
+        uiPlayerHP.text=playHP.ToString();
     }
 }
