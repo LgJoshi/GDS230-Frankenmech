@@ -82,7 +82,7 @@ public class Grabber : MonoBehaviour
             if( hit.collider != null )
             {
                 CardBehaviour objCardBehaviour = grabbedObject.GetComponent<CardBehaviour>();
-                hit.collider.gameObject.GetComponent<MechPart>().CardUsed(objCardBehaviour.myEffect, objCardBehaviour.myEffectInt);
+                hit.collider.gameObject.GetComponent<LimbBehaviour>().CardUsed(objCardBehaviour.myEffect, objCardBehaviour.myEffectInt);
                 EventManager.CardPlayedFunction(objCardBehaviour.myHandId);
 
             } else

@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<int> playerHand;
     [SerializeField] List<int> playerDiscard;
 
-    [SerializeField] public List<MechPart> mechParts;
+    [SerializeField] public List<LimbBehaviour> limbs;
 
     [SerializeField] List<GameObject> spawnedCards;
     [SerializeField] Transform handStart;
@@ -145,9 +145,9 @@ public class PlayerManager : MonoBehaviour
     public int MechStatCheck(){
         int mechStatTotal=0;
 
-        for( int i = 0;i < mechParts.Count;i++ )
+        for( int i = 0;i < limbs.Count;i++ )
         {
-            mechStatTotal += mechParts[i].damageDealt;
+            mechStatTotal += limbs[i].damageDealt;
         }
 
         return mechStatTotal;

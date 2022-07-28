@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class MechPart : MonoBehaviour
+public class LimbBehaviour : MonoBehaviour
 {
     public int damageDealt=5;
 
@@ -13,7 +13,7 @@ public class MechPart : MonoBehaviour
     private void Start()
     {
         playerManager = GetComponentInParent(typeof(PlayerManager)) as PlayerManager;
-        playerManager.mechParts.Add(this.GetComponent<MechPart>());
+        playerManager.limbs.Add(this.GetComponent<LimbBehaviour>());
         UpdateUI();
     }
 
