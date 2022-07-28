@@ -2826,6 +2826,7 @@ GameObject:
   - component: {fileID: 1858098691}
   - component: {fileID: 1858098692}
   - component: {fileID: 1858098693}
+  - component: {fileID: 1858098694}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2896,7 +2897,7 @@ MonoBehaviour:
   playerDeck: 
   playerHand: 00000000
   playerDiscard: 
-  mechParts: []
+  limbs: []
   spawnedCards:
   - {fileID: 227560950}
   handStart: {fileID: 1617151268}
@@ -2922,6 +2923,20 @@ MonoBehaviour:
   dialogueText: {fileID: 1718156731}
   playerHUD: {fileID: 248381313}
   enemyHUD: {fileID: 1651830870}
+--- !u!114 &1858098694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858098688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9892ed5e01fb3fb458ff0afe0ee28fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limbLibraryArray:
+    limbDataLibrary: []
 --- !u!1 &1890023342
 GameObject:
   m_ObjectHideFlags: 0

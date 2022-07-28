@@ -1,0 +1,50 @@
+{
+	"limbDataLibrary": [
+		{
+			"limbName": "limbZero",
+            "limbDescription": "zero description",
+			"limbID": 0
+		},
+		{
+            "limbName": "first limb",
+            "limbDescription": "damage 5",
+			"limbID": 1,
+			"limbEffect": "attack",
+			"limbEffectInt": 5
+		},
+		{
+            "limbName": "second limb",
+            "limbDescription": "damage 10",
+			"limbID": 2,
+			"limbEffect": "attack",
+			"limbEffectInt": 10
+		},
+		{
+			"limbName": "third limb",
+            "limbDescription": "block 2",
+			"limbID": 3,
+			"limbEffect": "block",
+			"limbEffectInt": 2
+		},
+		{
+			"limbName": "fourth",
+            "limbDescription": "zero description",
+			"limbID": 4
+		},
+		{
+			"limbName": "fifth",
+            "limbDescription": "zero description",
+			"limbID": 5
+		},
+		{
+			"limbName": "sixth",
+            "limbDescription": "zero description",
+			"limbID": 6
+		},
+		{
+			"limbName": "seventh",
+            "limbDescription": "zero description",
+			"limbID": 7
+		}
+	]
+}

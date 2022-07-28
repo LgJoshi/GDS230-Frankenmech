@@ -142,19 +142,31 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("shuffle deck");
     }
 
-    public int MechStatCheck(){
-        int mechStatTotal=0;
+    public int MechAttackCheck(){
+        int mechAttackTotal=0;
 
         for( int i = 0;i < limbs.Count;i++ )
         {
-            mechStatTotal += limbs[i].damageDealt;
+            if (limbs[i].effectType == "attack"){
+                mechAttackTotal += limbs[i].effectInt;
+            }
         }
 
-        return mechStatTotal;
+        return mechAttackTotal;
     }
 
     public void TakeDamage(int input){
-        playHP+=input;
+
+        int mechBlockTotal = 0;
+
+        for( int i = 0;i < limbs.Count;i++ )
+        {
+            if (limbs[i].effectType == "block"){
+                mechBlockTotal += limbs[i].effectInt;
+            }
+        }
+
+        playHP += Mathf.Clamp(input+mechBlockTotal, -999999, 0);
         uiPlayerHP.text=playHP.ToString();
     }
 }

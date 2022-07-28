@@ -67,14 +67,14 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-        bool isDead = enemyUnit.TakeDamage(playerManager.MechStatCheck());
+        bool isDead = enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
         enemyHUD.SetHp(enemyUnit.currHealth);
 
 
         yield return new WaitForSeconds(2f);
 
-        enemyUnit.TakeDamage(playerManager.MechStatCheck());
+        enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
         if (isDead)
         {
@@ -144,6 +144,7 @@ public class BattleSystem : MonoBehaviour
                 
                 state = BattleState.PLAYERTURN;
 
+                EventManager.PlayerTurnFunction();
                 playerManager.DrawCards();
 
                 dialogueText.text = "Player 1 Turn ";

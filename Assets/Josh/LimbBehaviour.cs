@@ -5,16 +5,47 @@ using TMPro;
 
 public class LimbBehaviour : MonoBehaviour
 {
-    public int damageDealt=5;
+    public int effectInt=5;
+    public string effectType = "defaultEffect";
 
-    [SerializeField] TextMeshPro myUI;
+    int myId = 0;
+    string myName = "default limb";
+
+    [SerializeField] TextMeshPro myUIStat;
+    [SerializeField] TextMeshPro myUIName;
+
+    [SerializeField] LimbLibrary limbLibrary;
     PlayerManager playerManager;
+
+    private void OnEnable()
+    {
+        EventManager.PlayerTurnEvent += GetLimbStats;
+    }
+    private void OnDisable()
+    {
+        //might be useless
+        EventManager.PlayerTurnEvent -= GetLimbStats;
+    }
 
     private void Start()
     {
+        myId = Random.Range(1,4);
+        limbLibrary = GetComponentInParent(typeof(LimbLibrary)) as LimbLibrary;
+        GetLimbStats();
+        
         playerManager = GetComponentInParent(typeof(PlayerManager)) as PlayerManager;
         playerManager.limbs.Add(this.GetComponent<LimbBehaviour>());
+
         UpdateUI();
+    }
+
+    void GetLimbStats()
+    {
+        effectInt = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffectInt;
+        effectType = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffect;
+
+        myName = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbName;
+        myUIName.text = myName;
     }
 
     public void CardUsed(string effect, int effectInt)
@@ -38,16 +69,16 @@ public class LimbBehaviour : MonoBehaviour
 
     public void ChangeStat( int input )
     {
-        damageDealt += input;
+        effectInt += input;
     }
 
     void MultiplyStat(int input)
     {
-        damageDealt *= input;
+        effectInt *= input;
     }
 
     void UpdateUI()
     {
-        myUI.text = damageDealt.ToString();
+        myUIStat.text = effectInt.ToString();
     }
 }
