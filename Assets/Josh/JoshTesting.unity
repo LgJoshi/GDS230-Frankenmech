@@ -673,6 +673,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374073559}
   m_CullTransparentMesh: 1
+--- !u!114 &395657998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5688898355323823168, guid: 73df6c027d03fa0449e5150bfa04f8e5, type: 3}
+  m_PrefabInstance: {fileID: 162129233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88622d790a200f44f949f6063eafef83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410067616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1493,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5688898355323823174, guid: 73df6c027d03fa0449e5150bfa04f8e5, type: 3}
   m_PrefabInstance: {fileID: 2034084680}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1109944801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5688898355323823168, guid: 73df6c027d03fa0449e5150bfa04f8e5, type: 3}
+  m_PrefabInstance: {fileID: 2034084680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88622d790a200f44f949f6063eafef83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1139623845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2623,6 +2645,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711970332}
   m_CullTransparentMesh: 1
+--- !u!114 &1714834146 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5688898355323823168, guid: 73df6c027d03fa0449e5150bfa04f8e5, type: 3}
+  m_PrefabInstance: {fileID: 5688898355497686573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88622d790a200f44f949f6063eafef83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1718156729
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,7 +3195,10 @@ MonoBehaviour:
   playerDeck: 
   playerHand: 00000000
   playerDiscard: 
-  limbs: []
+  limbs:
+  - {fileID: 1714834146}
+  - {fileID: 1109944801}
+  - {fileID: 395657998}
   spawnedCards:
   - {fileID: 227560950}
   handStart: {fileID: 1617151268}
