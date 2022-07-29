@@ -6,30 +6,32 @@
 			"cardID": 0
 		},
 		{
-            "cardName": "first card",
-            "cardDescription": "Increase stat by 5",
+            "cardName": "Augment",
+            "cardDescription": "Add +1 to the limb's stat",
 			"cardID": 1,
 			"cardEffect": "statChange",
-			"cardEffectInt": 5
+			"cardEffectInt": 1
 		},
 		{
-            "cardName": "second card",
-            "cardDescription": "chagne stat by 10",
+            "cardName": "Shield",
+            "cardDescription": "Add +1 to block",
 			"cardID": 2,
-			"cardEffect": "statChange",
-			"cardEffectInt": 10
+			"cardEffect": "block",
+			"cardEffectInt": 1
 		},
 		{
-			"cardName": "third card",
-            "cardDescription": "multiply stat by 2",
+			"cardName": "Re-evaluate",
+            "cardDescription": "Draw 1 card",
 			"cardID": 3,
-			"cardEffect": "statMultiply",
-			"cardEffectInt": 2
+			"cardEffect": "draw",
+			"cardEffectInt": 1
 		},
 		{
-			"cardName": "fourth",
-            "cardDescription": "zero description",
-			"cardID": 4
+			"cardName": "Overcharge",
+            "cardDescription": "Double the limb's stat",
+			"cardID": 4,
+			"cardEffect": "multiply",
+			"cardEffectInt": 2
 		},
 		{
 			"cardName": "fifth",

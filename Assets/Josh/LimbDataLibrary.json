@@ -6,30 +6,32 @@
 			"limbID": 0
 		},
 		{
-            "limbName": "first limb",
-            "limbDescription": "damage 5",
+            "limbName": "Laser Rifle",
+            "limbDescription": "Deal 3 damage",
 			"limbID": 1,
 			"limbEffect": "attack",
-			"limbEffectInt": 5
+			"limbEffectInt": 3
 		},
 		{
-            "limbName": "second limb",
+            "limbName": "Mini missiles",
             "limbDescription": "damage 10",
 			"limbID": 2,
 			"limbEffect": "attack",
 			"limbEffectInt": 10
 		},
 		{
-			"limbName": "third limb",
-            "limbDescription": "block 2",
+			"limbName": "Standard Legs",
+            "limbDescription": "No Effect",
 			"limbID": 3,
-			"limbEffect": "block",
-			"limbEffectInt": 2
+			"limbEffect": "nothing",
+			"limbEffectInt": 0
 		},
 		{
-			"limbName": "fourth",
-            "limbDescription": "zero description",
-			"limbID": 4
+			"limbName": "Auto Cannon",
+            "limbDescription": "Deal 2 damage 2 times",
+			"limbID": 4,
+			"limbEffect": "attack",
+			"limbEffectInt": 4
 		},
 		{
 			"limbName": "fifth",

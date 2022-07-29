@@ -12,12 +12,14 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] GameObject cardPrefab;
     [SerializeField] CardLibrary cardLibrary;
+    SingletonDataStorage singletonDataStorage;
 
     [SerializeField] List<int> playerDeck;
     [SerializeField] List<int> playerHand;
     [SerializeField] List<int> playerDiscard;
 
-    [SerializeField] public List<LimbBehaviour> limbs;
+    [SerializeField] LimbBehaviour[] limbs;
+    int[] limbsId;
 
     [SerializeField] List<GameObject> spawnedCards;
     [SerializeField] Transform handStart;
@@ -32,17 +34,15 @@ public class PlayerManager : MonoBehaviour
     }
 
     void Start() {
-        playerDeck.Add(1);
-        playerDeck.Add(2);
-        playerDeck.Add(3);
-        playerDeck.Add(1);
-        playerDeck.Add(2);
-        playerDeck.Add(3);
-        playerDeck.Add(1);
-        playerDeck.Add(2);
-        playerDeck.Add(0);
 
         uiPlayerHP.text = playHP.ToString();
+
+        singletonDataStorage = GameObject.FindObjectOfType<SingletonDataStorage>();
+
+        limbsId = singletonDataStorage.playerLimbLoadoutIds;
+
+        InitializeLoadout();
+
     }
 
     private void Update()
@@ -50,6 +50,24 @@ public class PlayerManager : MonoBehaviour
         if( Input.GetKeyDown("f") )
         {
             DrawCards();
+        }
+    }
+
+    void InitializeLoadout()
+    {
+
+        for (int i = 0; i < limbs.Length; i++)
+        {
+            limbs[i].myId = singletonDataStorage.playerLimbLoadoutIds[i];
+            limbs[i].GetLimbStats();
+        }
+
+        foreach (var listObj in singletonDataStorage.playerDeckLoadoutIds)
+        {
+            foreach (var iD in listObj)
+            {
+                playerDeck.Add(iD);
+            }
         }
     }
 
@@ -145,7 +163,7 @@ public class PlayerManager : MonoBehaviour
     public int MechAttackCheck(){
         int mechAttackTotal=0;
 
-        for( int i = 0;i < limbs.Count;i++ )
+        for( int i = 0;i < limbs.Length;i++ )
         {
             if (limbs[i].effectType == "attack"){
                 mechAttackTotal += limbs[i].effectInt;
@@ -159,7 +177,7 @@ public class PlayerManager : MonoBehaviour
 
         int mechBlockTotal = 0;
 
-        for( int i = 0;i < limbs.Count;i++ )
+        for( int i = 0;i < limbs.Length;i++ )
         {
             if (limbs[i].effectType == "block"){
                 mechBlockTotal += limbs[i].effectInt;

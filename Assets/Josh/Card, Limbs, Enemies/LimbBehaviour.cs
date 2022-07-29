@@ -8,7 +8,7 @@ public class LimbBehaviour : MonoBehaviour
     public int effectInt=5;
     public string effectType = "defaultEffect";
 
-    int myId = 0;
+    public int myId = 0;
     string myName = "default limb";
 
     [SerializeField] TextMeshPro myUIStat;
@@ -29,23 +29,26 @@ public class LimbBehaviour : MonoBehaviour
 
     private void Start()
     {
-        myId = Random.Range(1,4);
         limbLibrary = GetComponentInParent(typeof(LimbLibrary)) as LimbLibrary;
-        GetLimbStats();
+        //GetLimbStats();
         
+        /*
         playerManager = GetComponentInParent(typeof(PlayerManager)) as PlayerManager;
         playerManager.limbs.Add(this.GetComponent<LimbBehaviour>());
+        */
 
-        UpdateUI();
+        //UpdateUI();
     }
 
-    void GetLimbStats()
+    public void GetLimbStats()
     {
         effectInt = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffectInt;
         effectType = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffect;
 
         myName = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbName;
         myUIName.text = myName;
+
+        UpdateUI();
     }
 
     public void CardUsed(string effect, int effectInt)

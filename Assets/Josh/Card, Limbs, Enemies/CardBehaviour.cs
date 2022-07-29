@@ -20,7 +20,6 @@ public class CardBehaviour : MonoBehaviour
     public string myEffect="myEffect";
     public int myEffectInt = 0;
 
-    /*
     private void OnEnable()
     {
         EventManager.CardDrawEvent += UpdateCardFace;
@@ -30,7 +29,7 @@ public class CardBehaviour : MonoBehaviour
         //might be useless
         EventManager.CardDrawEvent -= UpdateCardFace;
     }
-    */
+    
 
     void Start()
     {
