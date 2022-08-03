@@ -81,9 +81,22 @@ public class Grabber : MonoBehaviour
 
             if( hit.collider != null )
             {
+                //gets the grabbed object's cardbehaviour script
                 CardBehaviour objCardBehaviour = grabbedObject.GetComponent<CardBehaviour>();
-                hit.collider.gameObject.GetComponent<LimbBehaviour>().CardUsed(objCardBehaviour.myEffect, objCardBehaviour.myEffectInt);
-                EventManager.CardPlayedFunction(objCardBehaviour.myHandId);
+
+
+                if (hit.collider.gameObject.GetComponent<LimbBehaviour>().CardUsed(
+                    objCardBehaviour.myEffect, 
+                    objCardBehaviour.myEffectInt, 
+                    objCardBehaviour.myEnergyCost
+                    ) == true)
+                {
+                    //this event should delete the card
+                    EventManager.CardPlayedFunction(objCardBehaviour.myHandId);
+                } else
+                {
+                    grabbedObject.transform.position = grabbedObjectOrigin;
+                }
 
             } else
             {

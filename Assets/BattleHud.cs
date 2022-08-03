@@ -9,6 +9,7 @@ public class BattleHud : MonoBehaviour
     public Text levelText;
     public Slider hpSlider;
     [SerializeField] Text hpDisplay;
+    public Text energyText;
 
 
 
@@ -27,5 +28,8 @@ public class BattleHud : MonoBehaviour
         hpDisplay.text = hp.ToString();
     }
 
-
+    public void SetEnergy(int input)
+    {
+        energyText.text = input.ToString();
+    }
 }

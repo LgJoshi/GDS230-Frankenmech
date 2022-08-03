@@ -51,23 +51,35 @@ public class LimbBehaviour : MonoBehaviour
         UpdateUI();
     }
 
-    public void CardUsed(string effect, int effectInt)
+    public bool CardUsed(string effect, int effectInt, int energyCost)
     {
-        switch( effect )
+        if( playerManager.CardEnergyCheck(energyCost) == true )
         {
-            case "statChange":
+            switch( effect )
+            {
+                case "statChange":
                 ChangeStat(effectInt);
                 break;
 
-            case "statMultiply":
+                case "statMultiply":
                 MultiplyStat(effectInt);
                 break;
 
-            default:
+                default:
                 Debug.Log(this.gameObject.name + ": Error");
                 break;
+            }
+            
+            UpdateUI();
+
+            return true;
+
+        } else
+        {
+            return false;
         }
-        UpdateUI();
+
+
     }
 
     public void ChangeStat( int input )

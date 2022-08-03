@@ -10,28 +10,32 @@
             "cardDescription": "Add +1 to the limb's stat",
 			"cardID": 1,
 			"cardEffect": "statChange",
-			"cardEffectInt": 1
+			"cardEffectInt": 1,
+			"cardCost": 1
 		},
 		{
             "cardName": "Shield",
             "cardDescription": "Add +1 to block",
 			"cardID": 2,
 			"cardEffect": "block",
-			"cardEffectInt": 1
+			"cardEffectInt": 1,
+			"cardCost": 1
 		},
 		{
 			"cardName": "Re-evaluate",
             "cardDescription": "Draw 1 card",
 			"cardID": 3,
 			"cardEffect": "draw",
-			"cardEffectInt": 1
+			"cardEffectInt": 1,
+			"cardCost": 1
 		},
 		{
 			"cardName": "Overcharge",
             "cardDescription": "Double the limb's stat",
 			"cardID": 4,
 			"cardEffect": "multiply",
-			"cardEffectInt": 2
+			"cardEffectInt": 2,
+			"cardCost": 2
 		},
 		{
 			"cardName": "fifth",

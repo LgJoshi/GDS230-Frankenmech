@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI uiPlayerHP;
     
     int cardDrawPower = 3;
+    int maxEnergy = 3;
+    int currentEnergy = 3;
 
     [SerializeField] GameObject cardPrefab;
     [SerializeField] CardLibrary cardLibrary;
@@ -47,10 +49,10 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if( Input.GetKeyDown("f") )
+        /*if( Input.GetKeyDown("f") )
         {
             DrawCards();
-        }
+        }*/
     }
 
     void InitializeLoadout()
@@ -186,5 +188,17 @@ public class PlayerManager : MonoBehaviour
 
         playHP += Mathf.Clamp(input+mechBlockTotal, -999999, 0);
         uiPlayerHP.text=playHP.ToString();
+    }
+
+    public bool CardEnergyCheck(int input)
+    {
+        if( currentEnergy - input < 0 )
+        {
+            return false;
+        } else
+        {
+            currentEnergy -= input;
+            return true;
+        }
     }
 }

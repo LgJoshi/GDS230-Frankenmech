@@ -19,15 +19,16 @@ public class CardBehaviour : MonoBehaviour
     string myCardDesc="myCardDesc";
     public string myEffect="myEffect";
     public int myEffectInt = 0;
+    public int myEnergyCost = 0;
 
     private void OnEnable()
     {
-        EventManager.CardDrawEvent += UpdateCardFace;
+        EventManager.CardDrawEvent += UpdateCardData;
     }
     private void OnDisable()
     {
         //might be useless
-        EventManager.CardDrawEvent -= UpdateCardFace;
+        EventManager.CardDrawEvent -= UpdateCardData;
     }
     
 
@@ -41,14 +42,15 @@ public class CardBehaviour : MonoBehaviour
     public void GetNewId(int newId )
     {
         myCardId = newId;
-        UpdateCardFace();
+        UpdateCardData();
     }
 
-    void UpdateCardFace(){
+    void UpdateCardData(){
         myCardName = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardName;
         myCardDesc = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardDescription;
         myEffect = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardEffect;
         myEffectInt = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardEffectInt;
+        myEnergyCost = cardLibrary.cardLibraryArray.cardDataLibrary[myCardId].cardCost;
 
         UpdateName();
         UpdateDesc();
