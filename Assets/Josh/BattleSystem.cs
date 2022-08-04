@@ -114,15 +114,12 @@ public class BattleSystem : MonoBehaviour
             {
                 Debug.Log ("Attacked");
 
-                bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-                playerHUD.SetHp(playerUnit.currHealth);
+                bool isDead = playerManager.TakeDamage(enemyUnit.damage);
 
             }
             else
             {
                Debug.Log ("Healed");
-                
-
             }
             yield return new WaitForSeconds(2f);
 

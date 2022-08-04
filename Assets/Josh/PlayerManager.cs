@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
 {
     public int playHP = 50;
+    int maxHp = 50;
     [SerializeField] TextMeshProUGUI uiPlayerHP;
     
     int cardDrawPower = 3;
@@ -175,7 +176,7 @@ public class PlayerManager : MonoBehaviour
         return mechAttackTotal;
     }
 
-    public void TakeDamage(int input){
+    public bool TakeDamage(int input){
 
         int mechBlockTotal = 0;
 
@@ -187,7 +188,14 @@ public class PlayerManager : MonoBehaviour
         }
 
         playHP += Mathf.Clamp(input+mechBlockTotal, -999999, 0);
-        uiPlayerHP.text=playHP.ToString();
+        uiPlayerHP.text = Mathf.Clamp(playHP, 0, 999999).ToString();
+        if( playHP <= 0 )
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 
     public bool CardEnergyCheck(int input)
