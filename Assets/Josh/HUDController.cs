@@ -6,31 +6,48 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-    public Text nameText;
-    public Text levelText;
-    public Slider hpSlider;
-    [SerializeField] Text hpDisplay;
-    public Text energyText;
+    public Text enemyNameText;
+    [SerializeField] Slider enemyHpSlider;
+    [SerializeField] Text enemyHpDisplay;
+    [SerializeField] Text energyText;
 
+    [SerializeField] Slider playerHpSlider;
+    [SerializeField] Text playerHpDisplay;
+    [SerializeField] Text playerEnergyText;
 
+    PlayerManager playerManager;
 
-    public void SetHUD( Player unit )
+    public void SetEnemyHUD( Player unit )
     {
-        nameText.text = unit.Name;
-        levelText.text = "Lv1 " + unit.Level;
-        hpSlider.maxValue = unit.maxHealth;
-        hpSlider.value = unit.currHealth;
-        hpDisplay.text = unit.currHealth.ToString();
+        enemyNameText.text = unit.Name;
+        enemyHpSlider.maxValue = unit.maxHealth;
+        enemyHpSlider.value = unit.currHealth;
+        enemyHpDisplay.text = unit.currHealth.ToString();
     }
 
-    public void SetHp( int hp )
+    public void SetEnemyHp(int hp)
     {
-        hpSlider.value = hp;
-        hpDisplay.text = hp.ToString();
+        enemyHpSlider.value = hp;
+        enemyHpDisplay.text = hp.ToString();
     }
 
-    public void SetEnergy( int input )
+    public void SetPlayerHUD(PlayerManager newPlayerManager)
     {
-        energyText.text = input.ToString();
+        playerManager = newPlayerManager;
+        playerHpSlider.maxValue = playerManager.maxHp;
+        UpdatePlayerHp();
+
+        UpdatePlayerEnergy();
+    }
+
+    public void UpdatePlayerHp()
+    {
+        playerHpSlider.value = playerManager.playHP;
+        playerHpDisplay.text = playerManager.playHP.ToString();
+    }
+
+    public void UpdatePlayerEnergy()
+    {
+        playerEnergyText.text = playerManager.currentEnergy.ToString() + " / " + playerManager.maxEnergy.ToString();
     }
 }

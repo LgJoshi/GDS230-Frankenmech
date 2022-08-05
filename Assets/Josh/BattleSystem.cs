@@ -25,6 +25,7 @@ public class BattleSystem : MonoBehaviour
 
     public BattleHud playerHUD;
     public BattleHud enemyHUD;
+    [SerializeField] HUDController hudController;
 
 
 
@@ -33,8 +34,6 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.START;
         StartCoroutine(SetupBattle());
 
-        
-
     }
 
     IEnumerator SetupBattle()
@@ -42,9 +41,10 @@ public class BattleSystem : MonoBehaviour
 
         int randomIndex = Random.Range(0, enemyPrefab.Length);
 
-
+        /*
         GameObject playerGO = Instantiate(playerPrefab, playerBattleStation);
         playerUnit = playerGO.GetComponent<Player>();
+        */
 
 
         GameObject enemyGo = Instantiate(enemyPrefab[randomIndex], enemyBattleStation);
@@ -54,14 +54,13 @@ public class BattleSystem : MonoBehaviour
         dialogueText.text = "A test " + enemyUnit.Name + " approaches ";
 
 
-        playerHUD.SetHUD(playerUnit);
-        enemyHUD.SetHUD(enemyUnit);
+        hudController.SetPlayerHUD(playerManager);
+        hudController.SetEnemyHUD(enemyUnit);
 
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
-        playerManager.DrawCards();
 
     }
 
@@ -87,76 +86,54 @@ public class BattleSystem : MonoBehaviour
             StartCoroutine(EnemyTurn());
         }
 
+    }
 
-        void EndBattle()
+    IEnumerator EnemyTurn()
+    {
+        dialogueText.text = enemyUnit.Name + " Turn ";
+
+        yield return new WaitForSeconds(1f);
+
+        int actionTurn = Random.Range(0, 10);
+
+        bool isDead = false;
+
+        if (actionTurn >= 5)
         {
-            if(state == BattleState.WON)
-            {
-                dialogueText.text = "You won! ";
-            }
-            if(state == BattleState.LOST)
-            {
-                dialogueText.text = "You lost! ";
-            }
-        }
+            Debug.Log("Attacked");
 
-        IEnumerator EnemyTurn()
-        {
-            dialogueText.text = enemyUnit.Name + " Turn ";
-
-            yield return new WaitForSeconds(1f);
-
-            int actionTurn = Random.Range(0, 10);
-
-
-
-            if(actionTurn >= 5)
-            {
-                Debug.Log ("Attacked");
-
-                bool isDead = playerManager.TakeDamage(enemyUnit.damage);
-
-            }
-            else
-            {
-               Debug.Log ("Healed");
-            }
-            yield return new WaitForSeconds(2f);
-
-            //bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-
-            //playerHUD.SetHp(playerUnit.currHealth);
-
-            //yield return new WaitForSeconds(1f);
-
-            //state = BattleState.PLAYERTURN;
-
-            //dialogueText.text = "Player 1 Turn ";
-
-            if (isDead)
-            {
-                state = BattleState.LOST;
-                EndBattle();
-            } else{
-                
-                state = BattleState.PLAYERTURN;
-
-                EventManager.PlayerTurnFunction();
-                playerManager.DrawCards();
-
-                dialogueText.text = "Player 1 Turn ";
-            }
+            isDead = playerManager.TakeDamage(enemyUnit.damage);
+            hudController.UpdatePlayerHp();
 
         }
+        else
+        {
+            Debug.Log("Healed");
+        }
+        yield return new WaitForSeconds(2f);
 
 
+        if (isDead)
+        {
+            state = BattleState.LOST;
+            EndBattle();
+        }
+        else
+        {
 
+            state = BattleState.PLAYERTURN;
+
+            EventManager.PlayerTurnFunction();
+
+            dialogueText.text = "Player 1 Turn ";
+        }
 
     }
 
     void PlayerTurn()
     {
         dialogueText.text = "Choose an action: ";
+        playerManager.DrawCards();
     }
 
 
@@ -172,6 +149,16 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(PlayerAttack());
     }
 
-
+    void EndBattle()
+    {
+        if (state == BattleState.WON)
+        {
+            dialogueText.text = "You won! ";
+        }
+        if (state == BattleState.LOST)
+        {
+            dialogueText.text = "You lost! ";
+        }
+    }
 
 }

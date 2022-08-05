@@ -9,6 +9,7 @@ public class LimbBehaviour : MonoBehaviour
     public string effectType = "defaultEffect";
 
     public int myId = 0;
+    [SerializeField] int myLimbNumber;
     string myName = "default limb";
 
     [SerializeField] TextMeshPro myUIStat;
@@ -27,21 +28,27 @@ public class LimbBehaviour : MonoBehaviour
         EventManager.PlayerTurnEvent -= GetLimbStats;
     }
 
-    private void Start()
+    private void Awake()
     {
         limbLibrary = GetComponentInParent(typeof(LimbLibrary)) as LimbLibrary;
-        //GetLimbStats();
         
+        //this is a circular reference but because my grabber requires the energy to be checked, this can't really be helped right now...
+        playerManager = GetComponentInParent(typeof(PlayerManager)) as PlayerManager;
+        
+        //player manager takes care of the following:
         /*
         playerManager = GetComponentInParent(typeof(PlayerManager)) as PlayerManager;
-        playerManager.limbs.Add(this.GetComponent<LimbBehaviour>());
+        playerManager.limbs[myLimbNumber] = this.GetComponent<LimbBehaviour>();
+        GetLimbStats();
+        UpdateUI();
         */
-
-        //UpdateUI();
     }
 
     public void GetLimbStats()
     {
+        //player manager sets myId
+        //myId = playerManager.limbsId[myLimbNumber];
+
         effectInt = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffectInt;
         effectType = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffect;
 

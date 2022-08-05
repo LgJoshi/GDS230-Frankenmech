@@ -38,19 +38,19 @@ public class SingletonDataStorage : MonoBehaviour
     void InitializeLoadout()
     {
         playerLimbLoadoutIds[0] = 1;
-        playerLimbLoadoutIds[1] = 2;
-        playerLimbLoadoutIds[2] = 3;
+        playerLimbLoadoutIds[1] = 1;
+        playerLimbLoadoutIds[2] = 2;
 
-        playerDeckLoadoutIds[0].Add(1);
         playerDeckLoadoutIds[0].Add(1);
         playerDeckLoadoutIds[0].Add(2);
+        playerDeckLoadoutIds[0].Add(1);
 
-        playerDeckLoadoutIds[1].Add(1);
         playerDeckLoadoutIds[1].Add(1);
         playerDeckLoadoutIds[1].Add(2);
+        playerDeckLoadoutIds[1].Add(1);
 
         playerDeckLoadoutIds[2].Add(1);
-        playerDeckLoadoutIds[2].Add(1);
+        playerDeckLoadoutIds[2].Add(4);
         playerDeckLoadoutIds[2].Add(1);
     }
 }

@@ -6,23 +6,24 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
 {
     public int playHP = 50;
-    int maxHp = 50;
-    [SerializeField] TextMeshProUGUI uiPlayerHP;
+    public int maxHp = 50;
     
     int cardDrawPower = 3;
-    int maxEnergy = 3;
-    int currentEnergy = 3;
+    public int maxEnergy = 3;
+    public int currentEnergy = 3;
 
     [SerializeField] GameObject cardPrefab;
     [SerializeField] CardLibrary cardLibrary;
     SingletonDataStorage singletonDataStorage;
 
+    [SerializeField] HUDController hudController;
+
     [SerializeField] List<int> playerDeck;
     [SerializeField] List<int> playerHand;
     [SerializeField] List<int> playerDiscard;
 
-    [SerializeField] LimbBehaviour[] limbs;
-    int[] limbsId;
+    public LimbBehaviour[] limbs;
+    public int[] limbsId;
 
     [SerializeField] List<GameObject> spawnedCards;
     [SerializeField] Transform handStart;
@@ -30,15 +31,17 @@ public class PlayerManager : MonoBehaviour
     private void OnEnable()
     {
         EventManager.CardPlayedEvent += UpdateHand;
+        EventManager.PlayerTurnEvent += DrawCards;
+        EventManager.PlayerTurnEvent += RefreshEnergy;
     }
     private void OnDisable()
     {
         EventManager.CardPlayedEvent -= UpdateHand;
+        EventManager.PlayerTurnEvent -= DrawCards;
+        EventManager.PlayerTurnEvent -= RefreshEnergy;
     }
 
     void Start() {
-
-        uiPlayerHP.text = playHP.ToString();
 
         singletonDataStorage = GameObject.FindObjectOfType<SingletonDataStorage>();
 
@@ -72,20 +75,25 @@ public class PlayerManager : MonoBehaviour
                 playerDeck.Add(iD);
             }
         }
+
+        currentEnergy = maxEnergy;
     }
 
     public void DrawCards()
     {
         //discards the hand to the discard pile
-        for( int i = spawnedCards.Count;i > 0;i-- )
+        for (int i = spawnedCards.Count; i > 0; i--)
         {
             //delete card objects
-            GameObject.Destroy(spawnedCards[i-1]);
+            GameObject.Destroy(spawnedCards[i - 1]);
             spawnedCards.RemoveAt(i - 1);
-            
+
             //move card from hand to discard
-            playerDiscard.Add(playerHand[i - 1]);
-            playerHand.RemoveAt(i - 1);
+            if (playerHand.Count != 0)
+            {
+                playerDiscard.Add(playerHand[i - 1]);
+                playerHand.RemoveAt(i - 1);
+            }
         }
 
         //instantiate new cards which make up the hand
@@ -130,6 +138,12 @@ public class PlayerManager : MonoBehaviour
         }
 
         EventManager.CardDrawFunction();
+    }
+
+    void RefreshEnergy()
+    {
+        currentEnergy = maxEnergy;
+        hudController.UpdatePlayerEnergy();
     }
 
     void UpdateHand(int input)
@@ -188,7 +202,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         playHP += Mathf.Clamp(input+mechBlockTotal, -999999, 0);
-        uiPlayerHP.text = Mathf.Clamp(playHP, 0, 999999).ToString();
         if( playHP <= 0 )
         {
             return true;
@@ -206,6 +219,7 @@ public class PlayerManager : MonoBehaviour
         } else
         {
             currentEnergy -= input;
+            hudController.UpdatePlayerEnergy();
             return true;
         }
     }
