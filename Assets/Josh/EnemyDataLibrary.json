@@ -1,0 +1,43 @@
+{
+	"enemyDataLibrary": [
+		{
+			"name": "enemyZero",
+            "description": "zero description",
+			"id": 0,
+			"attackData": [
+				{
+					"name": "zero1",
+					"type": "attack",
+					"probability": 4,
+					"mainValue": 2
+				},
+				{
+					"name": "zero2",
+					"type": "attack",
+					"probability": 1,
+					"mainValue": 4
+				}
+			]
+		},
+		{
+			"name": "Regular 1",
+            "description": "A very basic and straightforward enemy",
+			"id": 1,
+			"attackData": [
+				{
+					"name": "miniMissile",
+					"type": "attack",
+					"probability": 4,
+					"mainValue": 3
+				},
+				{
+					"name": "miniGatling",
+					"type": "multiAttack",
+					"probability": 1,
+					"mainValue": 1,
+					"subValue": 3
+				}
+			]
+		}
+	]
+}
