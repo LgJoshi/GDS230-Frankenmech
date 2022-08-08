@@ -11,14 +11,16 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject[] enemyPrefab;
     [SerializeField] PlayerManager playerManager;
-
+    [SerializeField] EnemyBehaviour enemyUnit;
     
 
     public Transform playerBattleStation;
     public Transform enemyBattleStation;
 
+    /*
     Player playerUnit;
     Player enemyUnit;
+    */
 
     public Text dialogueText;
 
@@ -44,12 +46,13 @@ public class BattleSystem : MonoBehaviour
         playerUnit = playerGO.GetComponent<Player>();
         */
 
-
+        /*
         GameObject enemyGo = Instantiate(enemyPrefab[randomIndex], enemyBattleStation);
         enemyUnit = enemyGo.GetComponent<Player>();
+        */
 
 
-        dialogueText.text = "A test " + enemyUnit.Name + " approaches ";
+        dialogueText.text = "A test " + enemyUnit.myName + " approaches ";
 
 
         hudController.SetPlayerHUD(playerManager);
@@ -66,12 +69,9 @@ public class BattleSystem : MonoBehaviour
     {
         bool isDead = enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
-        enemyHUD.SetHp(enemyUnit.currHealth);
-
+        hudController.UpdateEnemyHp();
 
         yield return new WaitForSeconds(2f);
-
-        enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
         if( isDead )
         {
@@ -89,7 +89,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        dialogueText.text = enemyUnit.Name + " Turn ";
+        dialogueText.text = enemyUnit.myName + " Turn ";
 
         yield return new WaitForSeconds(1f);
 
@@ -101,7 +101,7 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("Attacked");
 
-            isDead = playerManager.TakeDamage(enemyUnit.damage);
+            isDead = playerManager.TakeDamage(enemyUnit.DamageCheck());
             hudController.UpdatePlayerHp();
 
         }
