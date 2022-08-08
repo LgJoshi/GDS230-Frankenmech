@@ -28,12 +28,10 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] HUDController hudController;
 
 
-
     private void Start()
     {
         state = BattleState.START;
         StartCoroutine(SetupBattle());
-
     }
 
     IEnumerator SetupBattle()
@@ -75,17 +73,18 @@ public class BattleSystem : MonoBehaviour
 
         enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
-        if (isDead)
+        if( isDead )
         {
             state = BattleState.WON;
             EndBattle();
-        }
-        else
+        } else
         {
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
 
+
+        
     }
 
     IEnumerator EnemyTurn()
@@ -136,9 +135,6 @@ public class BattleSystem : MonoBehaviour
         playerManager.DrawCards();
     }
 
-
-
-
     public void OnAttackButton()
     {
         Debug.Log("OnAttackButton");
@@ -151,14 +147,13 @@ public class BattleSystem : MonoBehaviour
 
     void EndBattle()
     {
-        if (state == BattleState.WON)
+        if( state == BattleState.WON )
         {
             dialogueText.text = "You won! ";
         }
-        if (state == BattleState.LOST)
+        if( state == BattleState.LOST )
         {
             dialogueText.text = "You lost! ";
         }
     }
-
 }

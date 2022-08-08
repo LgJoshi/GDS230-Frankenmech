@@ -53,4 +53,10 @@ public class SingletonDataStorage : MonoBehaviour
         playerDeckLoadoutIds[2].Add(4);
         playerDeckLoadoutIds[2].Add(1);
     }
+
+    public void ChangeLimb(int limbInt, int newLimbId, List<int> newCardIds )
+    {
+
+    }
+
 }

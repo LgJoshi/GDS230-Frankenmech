@@ -5,7 +5,8 @@ using TMPro;
 
 public class LimbBehaviour : MonoBehaviour
 {
-    public int effectInt=5;
+    public int effectIntOne = 1;
+    public int effectIntTwo = 1;
     public string effectType = "defaultEffect";
 
     public int myId = 0;
@@ -47,9 +48,8 @@ public class LimbBehaviour : MonoBehaviour
     public void GetLimbStats()
     {
         //player manager sets myId
-        //myId = playerManager.limbsId[myLimbNumber];
-
-        effectInt = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffectInt;
+        effectIntOne = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffectIntOne;
+        effectIntTwo = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffectIntTwo;
         effectType = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffect;
 
         myName = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbName;
@@ -65,16 +65,20 @@ public class LimbBehaviour : MonoBehaviour
             switch( effect )
             {
                 case "statChange":
-                ChangeStat(effectInt);
-                break;
+                    ChangeStat(effectInt);
+                    break;
 
                 case "statMultiply":
-                MultiplyStat(effectInt);
-                break;
+                    MultiplyStat(effectInt);
+                    break;
+                    
+                case "block":
+                    playerManager.ChangeBlock(effectInt);
+                    break;
 
                 default:
-                Debug.Log(this.gameObject.name + ": Error");
-                break;
+                    Debug.Log(this.gameObject.name + ": Error");
+                    break;
             }
             
             UpdateUI();
@@ -91,16 +95,16 @@ public class LimbBehaviour : MonoBehaviour
 
     public void ChangeStat( int input )
     {
-        effectInt += input;
+        effectIntOne += input;
     }
 
     void MultiplyStat(int input)
     {
-        effectInt *= input;
+        effectIntTwo = input;
     }
 
     void UpdateUI()
     {
-        myUIStat.text = effectInt.ToString();
+        myUIStat.text = effectIntOne.ToString() + " x " + effectIntTwo.ToString();
     }
 }

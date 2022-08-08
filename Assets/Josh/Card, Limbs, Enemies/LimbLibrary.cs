@@ -14,7 +14,8 @@ public class LimbLibrary : MonoBehaviour
         public string limbDescription = "default limbDescription";
         public int limbID = 999;
         public string limbEffect = "default effect";
-        public int limbEffectInt = 0;
+        public int limbEffectIntOne = 0;
+        public int limbEffectIntTwo = 0;
     }
 
     [System.Serializable]

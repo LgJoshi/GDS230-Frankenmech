@@ -14,6 +14,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] Slider playerHpSlider;
     [SerializeField] Text playerHpDisplay;
     [SerializeField] Text playerEnergyText;
+    [SerializeField] Text playerBlockText;
 
     PlayerManager playerManager;
 
@@ -35,9 +36,17 @@ public class HUDController : MonoBehaviour
     {
         playerManager = newPlayerManager;
         playerHpSlider.maxValue = playerManager.maxHp;
+        
         UpdatePlayerHp();
-
         UpdatePlayerEnergy();
+        UpdatePlayerBlock();
+    }
+
+    void UpdateAllPlayerUI()
+    {
+        UpdatePlayerHp();
+        UpdatePlayerEnergy();
+        UpdatePlayerBlock();
     }
 
     public void UpdatePlayerHp()
@@ -49,5 +58,10 @@ public class HUDController : MonoBehaviour
     public void UpdatePlayerEnergy()
     {
         playerEnergyText.text = playerManager.currentEnergy.ToString() + " / " + playerManager.maxEnergy.ToString();
+    }
+
+    public void UpdatePlayerBlock()
+    {
+        playerBlockText.text = playerManager.mechBlockTotal.ToString() + " Block";
     }
 }

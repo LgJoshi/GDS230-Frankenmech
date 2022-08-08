@@ -33,7 +33,7 @@
 			"cardName": "Overcharge",
             "cardDescription": "Double the limb's stat",
 			"cardID": 4,
-			"cardEffect": "multiply",
+			"cardEffect": "statMultiply",
 			"cardEffectInt": 2,
 			"cardCost": 2
 		},

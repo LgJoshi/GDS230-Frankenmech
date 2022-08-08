@@ -12,6 +12,9 @@ public class PlayerManager : MonoBehaviour
     public int maxEnergy = 3;
     public int currentEnergy = 3;
 
+    public int mechBlockTotal = 0;
+    int dodgeTotal = 0;
+
     [SerializeField] GameObject cardPrefab;
     [SerializeField] CardLibrary cardLibrary;
     SingletonDataStorage singletonDataStorage;
@@ -27,6 +30,8 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] List<GameObject> spawnedCards;
     [SerializeField] Transform handStart;
+
+    [SerializeField] LootSystem lootSystem;
 
     private void OnEnable()
     {
@@ -183,7 +188,7 @@ public class PlayerManager : MonoBehaviour
         for( int i = 0;i < limbs.Length;i++ )
         {
             if (limbs[i].effectType == "attack"){
-                mechAttackTotal += limbs[i].effectInt;
+                mechAttackTotal += (limbs[i].effectIntOne * limbs[i].effectIntTwo);
             }
         }
 
@@ -192,16 +197,36 @@ public class PlayerManager : MonoBehaviour
 
     public bool TakeDamage(int input){
 
-        int mechBlockTotal = 0;
-
+        //check each limb for its type and add to the stat totals
         for( int i = 0;i < limbs.Length;i++ )
         {
-            if (limbs[i].effectType == "block"){
-                mechBlockTotal += limbs[i].effectInt;
+            //turn this into a switch statement if it becomes too unwieldy
+            if( limbs[i].effectType == "dodge" )
+            {
+                dodgeTotal += limbs[i].effectIntOne;
+            }
+            else if (limbs[i].effectType == "block"){
+                mechBlockTotal += limbs[i].effectIntOne;
             }
         }
 
         playHP += Mathf.Clamp(input+mechBlockTotal, -999999, 0);
+        float dodgeRand = Random.Range(0, 100);
+        if (dodgeRand > dodgeTotal )
+        {
+            mechBlockTotal = Mathf.Clamp(mechBlockTotal - input, 0, 99999);
+            Debug.Log("Took " + Mathf.Clamp(input + mechBlockTotal, -999999, 0) + " damage");
+            playHP += Mathf.Clamp(input + mechBlockTotal, -999999, 0);
+        } else
+        {
+            Debug.Log("Dodged!");
+        }
+
+        mechBlockTotal = 0;
+        dodgeTotal = 0;
+
+        hudController.UpdatePlayerHp();
+        
         if( playHP <= 0 )
         {
             return true;
@@ -222,5 +247,17 @@ public class PlayerManager : MonoBehaviour
             hudController.UpdatePlayerEnergy();
             return true;
         }
+    }
+
+    public void ChangeBlock(int input )
+    {
+        mechBlockTotal += input;
+        hudController.UpdatePlayerBlock();
+    }
+
+    //activates the loot script which will spawn buttons. these buttons will activate a public function on this playermanager script which updates the singleton database.
+    public void ShowLoot()
+    {
+
     }
 }
