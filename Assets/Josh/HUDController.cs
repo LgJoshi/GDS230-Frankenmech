@@ -8,36 +8,45 @@ public class HUDController : MonoBehaviour
 {
     public Text enemyNameText;
     [SerializeField] Slider enemyHpSlider;
-    [SerializeField] Text enemyHpDisplay;
+    [SerializeField] Text enemyHpText;
     [SerializeField] Text energyText;
 
     [SerializeField] Slider playerHpSlider;
     [SerializeField] Text playerHpDisplay;
     [SerializeField] Text playerEnergyText;
+    [SerializeField] Text playerBlockText;
 
     PlayerManager playerManager;
+    EnemyBehaviour enemyUnit;
 
-    public void SetEnemyHUD( Player unit )
+    public void SetEnemyHUD( EnemyBehaviour newEnemyUnit )
     {
-        enemyNameText.text = unit.Name;
-        enemyHpSlider.maxValue = unit.maxHealth;
-        enemyHpSlider.value = unit.currHealth;
-        enemyHpDisplay.text = unit.currHealth.ToString();
+        enemyUnit = newEnemyUnit;
+        enemyNameText.text = enemyUnit.myName;
+        enemyHpSlider.maxValue = enemyUnit.maxHp;
+        
+        UpdateEnemyHp();
     }
 
-    public void SetEnemyHp(int hp)
+    public void UpdateEnemyHp()
     {
-        enemyHpSlider.value = hp;
-        enemyHpDisplay.text = hp.ToString();
+        enemyHpSlider.value = enemyUnit.currentHp;
+        enemyHpText.text = enemyUnit.currentHp.ToString();
     }
 
     public void SetPlayerHUD(PlayerManager newPlayerManager)
     {
         playerManager = newPlayerManager;
         playerHpSlider.maxValue = playerManager.maxHp;
-        UpdatePlayerHp();
 
+        UpdateAllPlayerUI();
+    }
+
+    void UpdateAllPlayerUI()
+    {
+        UpdatePlayerHp();
         UpdatePlayerEnergy();
+        UpdatePlayerBlock();
     }
 
     public void UpdatePlayerHp()
@@ -49,5 +58,10 @@ public class HUDController : MonoBehaviour
     public void UpdatePlayerEnergy()
     {
         playerEnergyText.text = playerManager.currentEnergy.ToString() + " / " + playerManager.maxEnergy.ToString();
+    }
+
+    public void UpdatePlayerBlock()
+    {
+        playerBlockText.text = playerManager.mechBlockTotal.ToString() + " Block";
     }
 }

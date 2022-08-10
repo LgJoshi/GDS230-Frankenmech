@@ -9,13 +9,15 @@
 					"name": "zero1",
 					"type": "attack",
 					"probability": 4,
-					"mainValue": 2
+					"mainValue": 2,
+					"subValue": 1
 				},
 				{
 					"name": "zero2",
 					"type": "attack",
 					"probability": 1,
-					"mainValue": 4
+					"mainValue": 4,
+					"subValue": 1
 				}
 			]
 		},
@@ -28,7 +30,8 @@
 					"name": "miniMissile",
 					"type": "attack",
 					"probability": 4,
-					"mainValue": 3
+					"mainValue": 3,
+					"subValue": 1
 				},
 				{
 					"name": "miniGatling",

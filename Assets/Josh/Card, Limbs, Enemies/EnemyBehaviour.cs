@@ -9,10 +9,13 @@ public class EnemyBehaviour : MonoBehaviour
     public int maxHp = 30;
     public int currentHp = 15;
     EnemyLibrary enemyLibrary;
+    public List<EnemyLibrary.AttackData> attackData;
+
 
     void Start(){
         enemyLibrary = GetComponentInParent(typeof(EnemyLibrary)) as EnemyLibrary;
         GetStats();
+        currentHp = maxHp;
     }
 
     void GetStats(){
@@ -20,6 +23,12 @@ public class EnemyBehaviour : MonoBehaviour
         maxHp = enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].maxHp;
         Debug.Log("my name is " + enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].name);
         Debug.Log("enemy attack test " + enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].attackData[0].name);
+
+
+        for ( int i = 0; i<enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].attackData.Count;i++ )
+        {
+            attackData.Add(enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].attackData[i]);
+        }
     }
 
     //take damage and return true if dead
@@ -30,5 +39,31 @@ public class EnemyBehaviour : MonoBehaviour
         } else{
             return false;
         }
+    }
+
+    public int DamageCheck()
+    {
+        int damage = 0;
+
+        int choiceNum = 0;
+        int choiceMax = 0;
+        foreach (EnemyLibrary.AttackData data in attackData )
+        {
+            choiceMax += data.mainValue;
+        }
+
+        choiceNum = Random.Range(0, choiceMax);
+        foreach( EnemyLibrary.AttackData data in attackData )
+        {
+            if( choiceNum >= data.probability )
+            {
+                choiceNum -= data.probability;
+            } else {
+                damage = data.mainValue * data.subValue;
+                break;
+            }
+        }
+
+        return damage;
     }
 }
