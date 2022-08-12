@@ -31,8 +31,6 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] List<GameObject> spawnedCards;
     [SerializeField] Transform handStart;
 
-    [SerializeField] LootSystem lootSystem;
-
     private void OnEnable()
     {
         EventManager.CardPlayedEvent += UpdateHand;
@@ -114,6 +112,7 @@ public class PlayerManager : MonoBehaviour
             //set positions
             newCard.transform.parent = this.transform;
             newCard.transform.position = handStart.position;
+            newCard.transform.rotation = handStart.rotation;
             spawnedCards.Add(newCard);
             newCard.transform.position += new Vector3(i*1.5f, 0, 0);
 

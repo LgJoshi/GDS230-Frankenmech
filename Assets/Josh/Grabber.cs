@@ -85,7 +85,7 @@ public class Grabber : MonoBehaviour
                 CardBehaviour objCardBehaviour = grabbedObject.GetComponent<CardBehaviour>();
 
 
-                if (hit.collider.gameObject.GetComponent<LimbBehaviour>().CardUsed(
+                if (hit.collider.gameObject.GetComponentInParent<LimbBehaviour>().CardUsed(
                     objCardBehaviour.myEffect, 
                     objCardBehaviour.myEffectInt, 
                     objCardBehaviour.myEnergyCost
