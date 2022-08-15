@@ -5,9 +5,12 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     public string myName;
-    public int myId = 0;
+    public int myId = 1;
     public int maxHp = 30;
     public int currentHp = 15;
+
+    public string nextAttack = "punch";
+
     EnemyLibrary enemyLibrary;
     public List<EnemyLibrary.AttackData> attackData;
 
@@ -19,6 +22,8 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     void GetStats(){
+        myId = GameObject.FindObjectOfType<SingletonDataStorage>().enemyType;
+
         myName = enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].name;
         maxHp = enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].maxHp;
         Debug.Log("my name is " + enemyLibrary.enemyLibraryArray.enemyDataLibrary[myId].name);
@@ -63,7 +68,7 @@ public class EnemyBehaviour : MonoBehaviour
                 break;
             }
         }
-
+        Debug.Log("damagecheck: " + damage);
         return damage;
     }
 }

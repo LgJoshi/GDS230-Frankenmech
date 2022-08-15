@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] HUDController hudController;
 
-    [SerializeField] List<int> playerDeck;
+    [SerializeField] public List<int> playerDeck;
     [SerializeField] List<int> playerHand;
     [SerializeField] List<int> playerDiscard;
 
@@ -142,6 +142,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         EventManager.CardDrawFunction();
+        hudController.UpdateDeckSize();
     }
 
     void RefreshEnergy()
@@ -209,13 +210,11 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        playHP += Mathf.Clamp(input+mechBlockTotal, -999999, 0);
         float dodgeRand = Random.Range(0, 100);
         if (dodgeRand > dodgeTotal )
         {
-            mechBlockTotal = Mathf.Clamp(mechBlockTotal - input, 0, 99999);
-            Debug.Log("Took " + Mathf.Clamp(input + mechBlockTotal, -999999, 0) + " damage");
-            playHP += Mathf.Clamp(input + mechBlockTotal, -999999, 0);
+            Debug.Log("Took " + Mathf.Clamp(mechBlockTotal-input, -999999, 0) + " damage");
+            playHP += Mathf.Clamp(mechBlockTotal-input, -999999, 0);
         } else
         {
             Debug.Log("Dodged!");

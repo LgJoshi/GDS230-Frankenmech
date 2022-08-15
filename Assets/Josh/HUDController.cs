@@ -6,15 +6,20 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI dialogueText;
+    
     public Text enemyNameText;
-    [SerializeField] Slider enemyHpSlider;
-    [SerializeField] Text enemyHpText;
-    [SerializeField] Text energyText;
+    [SerializeField] Image enemyHpBar;
+    [SerializeField] TextMeshProUGUI enemyHpText;
+    [SerializeField] TextMeshProUGUI enemyIntentText;
 
-    [SerializeField] Slider playerHpSlider;
-    [SerializeField] Text playerHpDisplay;
-    [SerializeField] Text playerEnergyText;
+    [SerializeField] Image playerHpBar;
+    [SerializeField] TextMeshProUGUI playerHpText;
+
+    [SerializeField] TextMeshProUGUI playerEnergyText;
+    [SerializeField] Image playerEnergyBar;
     [SerializeField] Text playerBlockText;
+    [SerializeField] TextMeshProUGUI deckSizeText;
 
     PlayerManager playerManager;
     EnemyBehaviour enemyUnit;
@@ -23,21 +28,19 @@ public class HUDController : MonoBehaviour
     {
         enemyUnit = newEnemyUnit;
         enemyNameText.text = enemyUnit.myName;
-        enemyHpSlider.maxValue = enemyUnit.maxHp;
-        
+
         UpdateEnemyHp();
     }
 
     public void UpdateEnemyHp()
     {
-        enemyHpSlider.value = enemyUnit.currentHp;
-        enemyHpText.text = enemyUnit.currentHp.ToString();
+        enemyHpBar.fillAmount = (float) enemyUnit.currentHp / enemyUnit.maxHp;
+        enemyHpText.text = enemyUnit.currentHp.ToString() +"/"+ enemyUnit.maxHp.ToString();
     }
 
     public void SetPlayerHUD(PlayerManager newPlayerManager)
     {
         playerManager = newPlayerManager;
-        playerHpSlider.maxValue = playerManager.maxHp;
 
         UpdateAllPlayerUI();
     }
@@ -51,17 +54,34 @@ public class HUDController : MonoBehaviour
 
     public void UpdatePlayerHp()
     {
-        playerHpSlider.value = playerManager.playHP;
-        playerHpDisplay.text = playerManager.playHP.ToString();
+        //playerHpSlider.value = playerManager.playHP;
+        playerHpBar.fillAmount = (float) playerManager.playHP / playerManager.maxHp;
+        playerHpText.text = playerManager.playHP.ToString() + "/"+ playerManager.maxHp.ToString();
     }
 
     public void UpdatePlayerEnergy()
     {
         playerEnergyText.text = playerManager.currentEnergy.ToString() + " / " + playerManager.maxEnergy.ToString();
+        playerEnergyBar.fillAmount = (float)playerManager.currentEnergy / playerManager.maxEnergy;
     }
 
     public void UpdatePlayerBlock()
     {
         playerBlockText.text = playerManager.mechBlockTotal.ToString() + " Block";
+    }
+
+    public void ChangeDialogueText(string input )
+    {
+        dialogueText.text = input;
+    }
+
+    public void UpdateEnemyIntent()
+    {
+        enemyIntentText.text = "Next turn: " + enemyUnit.nextAttack;
+    }
+
+    public void UpdateDeckSize()
+    {
+        deckSizeText.text = playerManager.playerDeck.Count.ToString();
     }
 }

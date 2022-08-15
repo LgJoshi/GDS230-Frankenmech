@@ -25,19 +25,114 @@
 			"name": "Regular 1",
             "description": "A very basic and straightforward enemy",
 			"id": 1,
+			"maxHp": 20, 
 			"attackData": [
 				{
-					"name": "miniMissile",
+					"name": "Sword Slash",
 					"type": "attack",
+					"probability": 2,
+					"mainValue": 5,
+					"subValue": 1
+				},
+				{
+					"name": "Auto Cannon",
+					"type": "multiAttack",
+					"probability": 3,
+					"mainValue": 2,
+					"subValue": 2
+				}
+			]
+		},
+		{
+			"name": "Regular 2",
+            "description": "An evasive enemy that keeps you guessing as to what it's going to do. Will passively dodge attacks and gradually become more and more powerful",
+			"id": 2,
+			"maxHp": 10, 
+			"attackData": [
+				{
+					"name": "Auto Pistol",
+					"type": "multiAttack",
+					"probability": 1,
+					"mainValue": 1,
+					"subValue": 3
+				},
+				{
+					"name": "Mini Missile",
+					"type": "attack",
+					"probability": 2,
+					"mainValue": 3,
+					"subValue": 1
+				}
+			]
+		},
+		{
+			"name": "Elite",
+            "description": "An evasive enemy that keeps you guessing as to what it's going to do. Will passively dodge attacks and gradually become more and more powerful",
+			"id": 3,
+			"maxHp": 20, 
+			"attackData": [
+				{
+					"name": "Half Salvo",
+					"type": "multiAttack",
 					"probability": 4,
+					"mainValue": 2,
+					"subValue": 2
+				},
+				{
+					"name": "Full Salvo",
+					"type": "multiAttack",
+					"probability": 1,
+					"mainValue": 2,
+					"subValue": 4
+				},
+				{
+					"name": "Bunkered Shot",
+					"type": "multiAttack",
+					"probability": 1,
 					"mainValue": 3,
 					"subValue": 1
 				},
 				{
-					"name": "miniGatling",
-					"type": "multiAttack",
+					"name": "Bunker",
+					"type": "block",
 					"probability": 1,
 					"mainValue": 1,
+					"subValue": 1
+				}
+			]
+		},
+		{
+			"name": "Boss",
+            "description": "Watch out for its powerful laser attack.",
+			"id": 4,
+			"maxHp": 50, 
+			"attackData": [
+				{
+					"name": "Low cal nails",
+					"type": "attack",
+					"probability": 4,
+					"mainValue": 2,
+					"subValue": 2
+				},
+				{
+					"name": "Nail Shot",
+					"type": "pierceAttack",
+					"probability": 1,
+					"mainValue": 5,
+					"subValue": 1
+				},
+				{
+					"name": "Charging",
+					"type": "charge",
+					"probability": 1,
+					"mainValue": 1,
+					"subValue": 1
+				},
+				{
+					"name": "Laser Beam",
+					"type": "multiAttack",
+					"probability": 1,
+					"mainValue": 4,
 					"subValue": 3
 				}
 			]

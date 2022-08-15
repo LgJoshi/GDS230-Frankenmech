@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
         //card behaviour uses this but might be useless
         CardDrawEvent();
     }
+    //event bfor start of player's turn
     public static event CombatDelegate PlayerTurnEvent;
     static public void PlayerTurnFunction()
     {
