@@ -7,6 +7,10 @@ public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
+    public GameObject LootMenuUI;
+
+
+
     public BattleState state;
     public GameObject playerPrefab;
     public GameObject[] enemyPrefab;
@@ -144,6 +148,13 @@ public class BattleSystem : MonoBehaviour
         if( state == BattleState.WON )
         {
             hudController.ChangeDialogueText("You won!");
+
+           
+            LootMenuUI.SetActive(true);
+
+            Time.timeScale = 0f;
+
+
         }
         if( state == BattleState.LOST )
         {
