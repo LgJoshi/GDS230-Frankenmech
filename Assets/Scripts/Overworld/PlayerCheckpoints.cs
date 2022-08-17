@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCheckpoints : MonoBehaviour
 {
     public GameObject[] checkpoints;
-    public int current = 0;
+    [SerializeField] int current = 0;
     float rotSpeed;
     public float speed;
     float WPradius = 1;
@@ -18,7 +18,6 @@ public class PlayerCheckpoints : MonoBehaviour
         singletonDataStorage = GameObject.FindObjectOfType<SingletonDataStorage>();
 
         current = singletonDataStorage.overworldCheckpoint;
-        current = 4;
 
         transform.position = checkpoints[current].transform.position;
     }
@@ -34,7 +33,15 @@ public class PlayerCheckpoints : MonoBehaviour
             
         }
         transform.position = Vector3.MoveTowards(transform.position, checkpoints[current].transform.position, Time.deltaTime * speed);
+
     }
 
+    public void LoadCombat(int input)
+    {
+        singletonDataStorage.enemyType = input;
 
+        singletonDataStorage.overworldCheckpoint = current;
+
+        SceneManager.LoadScene(1);
+    }
 }

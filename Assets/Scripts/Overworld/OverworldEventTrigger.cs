@@ -13,12 +13,8 @@ public class OverworldEventTrigger : MonoBehaviour
         Debug.Log("collided");
         if( trigger.CompareTag("Player") )
         {
-            SingletonDataStorage singletonDataStorage = GameObject.FindObjectOfType<SingletonDataStorage>();
-            singletonDataStorage.enemyType = enemyType;
+            trigger.GetComponent<PlayerCheckpoints>().LoadCombat(enemyType);
 
-            singletonDataStorage.overworldCheckpoint = trigger.GetComponent<PlayerCheckpoints>().current;
-
-            SceneManager.LoadScene(1);
         }
     }
 }

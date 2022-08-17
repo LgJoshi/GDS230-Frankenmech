@@ -152,7 +152,7 @@ public class BattleSystem : MonoBehaviour
            
             LootMenuUI.SetActive(true);
 
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
 
 
         }
