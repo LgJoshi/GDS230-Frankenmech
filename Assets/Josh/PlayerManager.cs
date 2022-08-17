@@ -114,7 +114,7 @@ public class PlayerManager : MonoBehaviour
             newCard.transform.position = handStart.position;
             newCard.transform.rotation = handStart.rotation;
             spawnedCards.Add(newCard);
-            newCard.transform.position += new Vector3(i*1.5f, 0, 0);
+            newCard.transform.position += new Vector3(i*2f, 0, 0);
 
         }
 

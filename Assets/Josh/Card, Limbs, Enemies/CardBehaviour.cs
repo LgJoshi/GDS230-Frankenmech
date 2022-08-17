@@ -8,6 +8,7 @@ public class CardBehaviour : MonoBehaviour
 {
     [SerializeField] TextMeshPro cardTextName;
     [SerializeField] TextMeshPro cardTextDesc;
+    [SerializeField] TextMeshPro cardTextCost;
 
     public CardLibrary cardLibrary;
 
@@ -20,6 +21,9 @@ public class CardBehaviour : MonoBehaviour
     public string myEffect="myEffect";
     public int myEffectInt = 0;
     public int myEnergyCost = 0;
+
+    [SerializeField] SpriteRenderer myCardArt;
+    [SerializeField] Sprite[] cardArtArray;
 
     private void OnEnable()
     {
@@ -54,6 +58,8 @@ public class CardBehaviour : MonoBehaviour
 
         UpdateName();
         UpdateDesc();
+        UpdateCost();
+        UpdateArt();
     }
 
     void UpdateName(){
@@ -65,7 +71,12 @@ public class CardBehaviour : MonoBehaviour
     }
 
     void UpdateCost(){
+        cardTextCost.text = myEnergyCost.ToString();
+    }
 
+    void UpdateArt()
+    {
+        myCardArt.sprite = cardArtArray[myCardId];
     }
 
     
