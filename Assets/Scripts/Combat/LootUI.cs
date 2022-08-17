@@ -32,7 +32,6 @@ public class LootUI : MonoBehaviour
         singletonDataStorage.playerLimbLoadoutIds[0] = 4;
 
         SceneManager.LoadScene("RoomGeneration");
-        battleSystem.LootMenuUI.SetActive(false);
 
     }
 

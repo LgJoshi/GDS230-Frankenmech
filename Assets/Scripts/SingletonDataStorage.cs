@@ -14,6 +14,8 @@ public class SingletonDataStorage : MonoBehaviour
     //3rd slot is for legs
     public int[] playerLimbLoadoutIds;
 
+    public int overworldCheckpoint = 0;
+
     private void Awake()
     {
         //singleton check
@@ -24,6 +26,7 @@ public class SingletonDataStorage : MonoBehaviour
         else
         {
             _instance = this;
+            DontDestroyOnLoad(this);
         }
 
         playerLimbLoadoutIds = new int[3];
