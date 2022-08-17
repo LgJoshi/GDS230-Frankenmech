@@ -9,11 +9,24 @@ public class EnemyBehaviour : MonoBehaviour
     public int maxHp = 30;
     public int currentHp = 15;
 
+    int nextAttackDamage = 0;
+
     public string nextAttack = "punch";
 
     EnemyLibrary enemyLibrary;
     public List<EnemyLibrary.AttackData> attackData;
 
+    [SerializeField] GameObject[] enemyModelPrefabs;
+
+    private void OnEnable()
+    {
+        EventManager.PlayerTurnEvent += ChooseNextAction;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.PlayerTurnEvent -= ChooseNextAction;
+    }
 
     void Start(){
         enemyLibrary = GetComponentInParent(typeof(EnemyLibrary)) as EnemyLibrary;
@@ -46,29 +59,36 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public int DamageCheck()
+    public void ChooseNextAction()
     {
-        int damage = 0;
 
-        int choiceNum = 0;
         int choiceMax = 0;
-        foreach (EnemyLibrary.AttackData data in attackData )
+        foreach( EnemyLibrary.AttackData data in attackData )
         {
             choiceMax += data.mainValue;
+            Debug.Log("data.name = "+data.name);
         }
 
+        //random integer
+        int choiceNum = 0;
         choiceNum = Random.Range(0, choiceMax);
+        
         foreach( EnemyLibrary.AttackData data in attackData )
         {
             if( choiceNum >= data.probability )
             {
                 choiceNum -= data.probability;
-            } else {
-                damage = data.mainValue * data.subValue;
+            } else
+            {
+                nextAttack = data.name;
+                nextAttackDamage = data.mainValue * data.subValue;
                 break;
             }
         }
-        Debug.Log("damagecheck: " + damage);
-        return damage;
+    }
+
+    public int DamageCheck()
+    {
+        return nextAttackDamage;
     }
 }

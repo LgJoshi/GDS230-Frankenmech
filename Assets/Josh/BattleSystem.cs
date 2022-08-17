@@ -56,6 +56,7 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
+        
         PlayerTurn();
 
     }
@@ -110,7 +111,7 @@ public class BattleSystem : MonoBehaviour
 
             state = BattleState.PLAYERTURN;
 
-            EventManager.PlayerTurnFunction();
+            PlayerTurn();
 
             hudController.ChangeDialogueText("Player 1 Turn ");
         }
@@ -120,8 +121,11 @@ public class BattleSystem : MonoBehaviour
     void PlayerTurn()
     {
         hudController.ChangeDialogueText("Choose an action:");
+        
+        EventManager.PlayerTurnFunction();
+
+        enemyUnit.ChooseNextAction();
         hudController.UpdateEnemyIntent();
-        playerManager.DrawCards();
     }
 
     public void OnAttackButton()

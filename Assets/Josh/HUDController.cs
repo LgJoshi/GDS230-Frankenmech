@@ -77,7 +77,7 @@ public class HUDController : MonoBehaviour
 
     public void UpdateEnemyIntent()
     {
-        enemyIntentText.text = "Next turn: " + enemyUnit.nextAttack;
+        enemyIntentText.text = "Next turn: " + enemyUnit.nextAttack + " for " + enemyUnit.DamageCheck() + " damage";
     }
 
     public void UpdateDeckSize()

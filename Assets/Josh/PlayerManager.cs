@@ -36,12 +36,14 @@ public class PlayerManager : MonoBehaviour
         EventManager.CardPlayedEvent += UpdateHand;
         EventManager.PlayerTurnEvent += DrawCards;
         EventManager.PlayerTurnEvent += RefreshEnergy;
+        EventManager.PlayerTurnEvent += RefreshBlock;
     }
     private void OnDisable()
     {
         EventManager.CardPlayedEvent -= UpdateHand;
         EventManager.PlayerTurnEvent -= DrawCards;
         EventManager.PlayerTurnEvent -= RefreshEnergy;
+        EventManager.PlayerTurnEvent -= RefreshBlock;
     }
 
     void Start() {
@@ -82,7 +84,7 @@ public class PlayerManager : MonoBehaviour
         currentEnergy = maxEnergy;
     }
 
-    public void DrawCards()
+    void DrawCards()
     {
         //discards the hand to the discard pile
         for (int i = spawnedCards.Count; i > 0; i--)
@@ -151,6 +153,12 @@ public class PlayerManager : MonoBehaviour
         hudController.UpdatePlayerEnergy();
     }
 
+    void RefreshBlock()
+    {
+        mechBlockTotal = 0;
+        hudController.UpdatePlayerBlock();
+    }
+
     void UpdateHand(int input)
     {
         //delete card objects
@@ -213,14 +221,18 @@ public class PlayerManager : MonoBehaviour
         float dodgeRand = Random.Range(0, 100);
         if (dodgeRand > dodgeTotal )
         {
-            Debug.Log("Took " + Mathf.Clamp(mechBlockTotal-input, -999999, 0) + " damage");
-            playHP += Mathf.Clamp(mechBlockTotal-input, -999999, 0);
+
+            Debug.Log("Took " + Mathf.Clamp(input-mechBlockTotal, 0, 99999) + " damage");
+            playHP -= Mathf.Clamp(input-mechBlockTotal, 0, 99999);
+
+            mechBlockTotal = Mathf.Clamp(mechBlockTotal - input, 0, 99999);
+            hudController.UpdatePlayerBlock();
+
         } else
         {
             Debug.Log("Dodged!");
         }
 
-        mechBlockTotal = 0;
         dodgeTotal = 0;
 
         hudController.UpdatePlayerHp();
