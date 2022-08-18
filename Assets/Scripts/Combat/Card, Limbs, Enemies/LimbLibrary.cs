@@ -16,6 +16,7 @@ public class LimbLibrary : MonoBehaviour
         public string limbEffect = "default effect";
         public int limbEffectIntOne = 0;
         public int limbEffectIntTwo = 0;
+        public string limbType = "arm";
     }
 
     [System.Serializable]

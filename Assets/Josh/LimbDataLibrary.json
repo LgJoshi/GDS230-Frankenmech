@@ -11,15 +11,17 @@
 			"limbID": 1,
 			"limbEffect": "attack",
 			"limbEffectIntOne": 3,
-			"limbEffectIntTwo": 1
+			"limbEffectIntTwo": 1,
+			"limbType": "arm"
 		},
 		{
             "limbName": "Mini missiles",
-            "limbDescription": "deal 1 damage 2 times",
+            "limbDescription": "Deal 1 damage 2 times",
 			"limbID": 2,
 			"limbEffect": "attack",
 			"limbEffectIntOne": 1,
-			"limbEffectIntTwo": 2
+			"limbEffectIntTwo": 2,
+			"limbType": "arm"
 		},
 		{
 			"limbName": "Standard Legs",
@@ -27,7 +29,8 @@
 			"limbID": 3,
 			"limbEffect": "nothing",
 			"limbEffectIntOne": 0,
-			"limbEffectIntTwo": 1
+			"limbEffectIntTwo": 1,
+			"limbType": "leg"
 		},
 		{
 			"limbName": "Auto Cannon",
@@ -35,7 +38,8 @@
 			"limbID": 4,
 			"limbEffect": "attack",
 			"limbEffectIntOne": 2,
-			"limbEffectIntTwo": 2
+			"limbEffectIntTwo": 2,
+			"limbType": "arm"
 		},
 		{
 			"limbName": "Sword",
@@ -43,8 +47,8 @@
 			"limbID": 5,
 			"limbEffect": "attack",
 			"limbEffectIntOne": 4,
-			"limbEffectIntTwo": 1
-
+			"limbEffectIntTwo": 1,
+			"limbType": "arm"
 		},
 		{
 			"limbName": "sixth",
