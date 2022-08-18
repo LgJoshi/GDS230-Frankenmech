@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerCheckpoints : MonoBehaviour
 {
     public GameObject[] checkpoints;
-    [SerializeField] int current = 0;
+    [SerializeField] int current;
     float rotSpeed;
     public float speed;
     float WPradius = 1;
@@ -15,9 +15,11 @@ public class PlayerCheckpoints : MonoBehaviour
 
     private void Start()
     {
-        singletonDataStorage = GameObject.FindObjectOfType<SingletonDataStorage>();
-
+        singletonDataStorage = GameObject.Find("Singleton").GetComponent<SingletonDataStorage>();
+        Debug.Log(singletonDataStorage.overworldCheckpoint);
         current = singletonDataStorage.overworldCheckpoint;
+
+        Debug.Log("player CP script start");
 
         transform.position = checkpoints[current].transform.position;
     }

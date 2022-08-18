@@ -51,7 +51,7 @@ public class BattleSystem : MonoBehaviour
         */
 
 
-        hudController.ChangeDialogueText("A test " + enemyUnit.myName + " approaches ");
+        hudController.ChangeDialogueText("A " + enemyUnit.myName + " approaches ");
 
 
         hudController.SetPlayerHUD(playerManager);

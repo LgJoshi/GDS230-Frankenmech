@@ -34,7 +34,7 @@ public class EnemyLibrary : MonoBehaviour
 
     void Awake()
     {
-        jsonString = File.ReadAllText( "Assets/Josh/" + "EnemyDataLibrary.json" );
+        jsonString = File.ReadAllText("Assets/Scripts/JSON/" + "EnemyDataLibrary.json" );
         Debug.Log("jsonstring is: " + jsonString);
         enemyLibraryArray = JsonUtility.FromJson<EnemyDataLibrary>(jsonString);
         //Debug.Log(cardLibraryArray.enemyDataLibrary[1].enemyName);

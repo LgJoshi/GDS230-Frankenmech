@@ -26,7 +26,7 @@ public class CardLibrary : MonoBehaviour
 
     void Awake()
     {
-        jsonString = File.ReadAllText( "Assets/Josh/" + "CardDataLibrary.json" );
+        jsonString = File.ReadAllText("Assets/Scripts/JSON/" + "CardDataLibrary.json" );
         Debug.Log("jsonstring is: " + jsonString);
         cardLibraryArray = JsonUtility.FromJson<CardDataLibrary>(jsonString);
         //Debug.Log(cardLibraryArray.cardDataLibrary[1].cardName);

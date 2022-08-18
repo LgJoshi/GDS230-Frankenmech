@@ -27,7 +27,7 @@ public class LimbLibrary : MonoBehaviour
 
     void Awake()
     {
-        jsonString = File.ReadAllText( "Assets/Josh/" + "LimbDataLibrary.json" );
+        jsonString = File.ReadAllText("Assets/Scripts/JSON/" + "LimbDataLibrary.json" );
         Debug.Log("jsonstring is: " + jsonString);
         limbLibraryArray = JsonUtility.FromJson<LimbDataLibrary>(jsonString);
         //Debug.Log(cardLibraryArray.cardDataLibrary[1].cardName);
