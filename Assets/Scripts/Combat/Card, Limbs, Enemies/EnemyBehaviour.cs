@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+
+
+
+
+    public Transform enemyBattleStation;
+
+
+
     public string myName;
     public int myId = 1;
     public int maxHp = 30;
@@ -32,6 +40,9 @@ public class EnemyBehaviour : MonoBehaviour
         enemyLibrary = GetComponentInParent(typeof(EnemyLibrary)) as EnemyLibrary;
         GetStats();
         currentHp = maxHp;
+
+        Instantiate(enemyModelPrefabs[0], enemyBattleStation);
+
     }
 
     void GetStats(){
