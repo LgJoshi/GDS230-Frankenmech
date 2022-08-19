@@ -38,7 +38,7 @@ public class SingletonDataStorage : MonoBehaviour
         InitializeLoadout();
     }
 
-    void InitializeLoadout()
+    public void InitializeLoadout()
     {
         playerLimbLoadoutIds[0] = 1;
         playerLimbLoadoutIds[1] = 1;

@@ -40,6 +40,7 @@ public class Grabber : MonoBehaviour
             }
         }
 
+        //setting the grabbed object's position
         if (grabbedObject!=null){
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.WorldToScreenPoint(grabbedObject.transform.position).z);
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(position);
@@ -84,7 +85,7 @@ public class Grabber : MonoBehaviour
                 //gets the grabbed object's cardbehaviour script
                 CardBehaviour objCardBehaviour = grabbedObject.GetComponent<CardBehaviour>();
 
-
+                //when card is dropped on a limb
                 if (hit.collider.gameObject.GetComponentInParent<LimbBehaviour>().CardUsed(
                     objCardBehaviour.myEffect, 
                     objCardBehaviour.myEffectInt, 
@@ -95,11 +96,13 @@ public class Grabber : MonoBehaviour
                     EventManager.CardPlayedFunction(objCardBehaviour.myHandId);
                 } else
                 {
+                    //returns card to original position
                     grabbedObject.transform.position = grabbedObjectOrigin;
                 }
 
             } else
             {
+                //returns card to original position
                 grabbedObject.transform.position = grabbedObjectOrigin;
             }
 

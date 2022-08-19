@@ -8,10 +8,12 @@ public class MainMenu : MonoBehaviour
 
     public string firstLevel;
 
+    SingletonDataStorage singletonDataStorage;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        singletonDataStorage = GameObject.Find("Singleton").GetComponent<SingletonDataStorage>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        singletonDataStorage.overworldCheckpoint = 0;
+        singletonDataStorage.InitializeLoadout();
         SceneManager.LoadScene(2);
     }
 
@@ -31,6 +35,11 @@ public class MainMenu : MonoBehaviour
     }
 
     public void CloseOptions()
+    {
+
+    }
+
+    public void LoadCredits()
     {
 
     }
