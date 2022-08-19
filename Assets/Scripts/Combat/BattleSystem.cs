@@ -8,8 +8,13 @@ public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WON, LOST}
 public class BattleSystem : MonoBehaviour
 {
     public GameObject LootMenuUI;
+    public ParticleSystem MissileTrail;
+    public ParticleSystem Laser;
+    public Transform laserposition;
+    public Transform missileposition;
 
-
+    public GameObject Missile;
+    
 
     public BattleState state;
     public GameObject playerPrefab;
@@ -32,6 +37,9 @@ public class BattleSystem : MonoBehaviour
 
     private void Start()
     {
+        
+
+
         state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
@@ -141,6 +149,13 @@ public class BattleSystem : MonoBehaviour
         }
         state = BattleState.PLAYERATTACK;
         StartCoroutine(PlayerAttack());
+
+        Instantiate(Laser, laserposition );
+
+
+        Instantiate(Missile, missileposition);
+        
+
     }
 
     void EndBattle()
