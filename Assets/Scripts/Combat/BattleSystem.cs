@@ -78,6 +78,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        playerManager.UpdateBlockDodge();
+
         bool isDead = enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
         hudController.UpdateEnemyHp();

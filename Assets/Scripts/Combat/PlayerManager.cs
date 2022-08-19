@@ -203,8 +203,8 @@ public class PlayerManager : MonoBehaviour
         return mechAttackTotal;
     }
 
-    public bool TakeDamage(int input){
-
+    public void UpdateBlockDodge()
+    {
         //check each limb for its type and add to the stat totals
         for( int i = 0;i < limbs.Length;i++ )
         {
@@ -212,12 +212,18 @@ public class PlayerManager : MonoBehaviour
             if( limbs[i].effectType == "dodge" )
             {
                 dodgeTotal += limbs[i].effectIntOne;
-            }
-            else if (limbs[i].effectType == "block"){
+            } else if( limbs[i].effectType == "block" )
+            {
                 mechBlockTotal += limbs[i].effectIntOne;
             }
         }
 
+        hudController.UpdatePlayerBlock();
+    }
+
+    public bool TakeDamage(int input){
+
+        //random dodge number
         float dodgeRand = Random.Range(0, 100);
         if (dodgeRand > dodgeTotal )
         {

@@ -51,14 +51,65 @@
 			"limbType": "arm"
 		},
 		{
-			"limbName": "sixth",
-            "limbDescription": "zero description",
-			"limbID": 6
+			"limbName": "Low-power Legs",
+            "limbDescription": "Draw 1 extra card per turn",
+			"limbID": 6,
+			"limbEffect": "draw",
+			"limbEffectIntOne": 1,
+			"limbType": "leg"
 		},
 		{
-			"limbName": "seventh",
-            "limbDescription": "zero description",
-			"limbID": 7
+			"limbName": "Assault Rifle",
+            "limbDescription": "Deal 1 damage 3 times",
+			"limbID": 7,
+			"limbEffect": "attack",
+			"limbEffectIntOne": 1,
+			"limbEffectIntTwo": 3,
+			"limbType": "arm"
+		},
+		{
+			"limbName": "Mini-rocket",
+            "limbDescription": "Deal 3 damage",
+			"limbID": 8,
+			"limbEffect": "attack",
+			"limbEffectIntOne": 1,
+			"limbEffectIntTwo": 3,
+			"limbType": "arm"
+		},
+		{
+			"limbName": "Jetpack",
+            "limbDescription": "Adds a 10% chance to dodge attacks",
+			"limbID": 9,
+			"limbEffect": "dodge",
+			"limbEffectIntOne": 10,
+			"limbType": "leg"
+		},
+		{
+			"limbName": "4X Rocket launcher",
+            "limbDescription": "Deal 2 damage 2 times",
+			"limbID": 10,
+			"limbEffect": "attack",
+			"limbEffectIntOne": 2,
+			"limbEffectIntTwo": 2,
+			"limbType": "arm"
+		},
+		{
+			"limbName": "Generator",
+            "limbDescription": "Generate 2 block",
+			"limbID": 11,
+			"limbEffect": "block",
+			"limbEffectIntOne": 2,
+			"limbEffectIntTwo": 1,
+			"limbType": "arm"
+		},
+		{
+			"limbName": "Armoured Legs",
+            "limbDescription": "Generate 1 block",
+			"limbID": 12,
+			"limbEffect": "block",
+			"limbEffectIntOne": 1,
+			"limbEffectIntTwo": 1,
+			"limbType": "arm"
 		}
 	]
 }

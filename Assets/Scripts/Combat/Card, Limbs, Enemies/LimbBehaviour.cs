@@ -53,7 +53,6 @@ public class LimbBehaviour : MonoBehaviour
         effectType = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbEffect;
 
         myName = limbLibrary.limbLibraryArray.limbDataLibrary[myId].limbName;
-        myUIName.text = myName;
 
         UpdateUI();
     }
@@ -105,6 +104,26 @@ public class LimbBehaviour : MonoBehaviour
 
     void UpdateUI()
     {
-        myUIStat.text = effectIntOne.ToString() + " x " + effectIntTwo.ToString();
+        myUIName.text = myName;
+
+        switch( effectType )
+        {
+            case "attack":
+            myUIStat.text = "Deals " + effectIntOne.ToString() + " x " + effectIntTwo.ToString() + " damage";
+            break;
+
+            case "block":
+            myUIStat.text = "Generates " + effectIntOne.ToString() + " x " + effectIntTwo.ToString() + " block";
+            break;
+
+            case "dodge":
+            myUIStat.text = "Adds chance to dodge by " + effectIntOne.ToString() + "% ";
+            break;
+
+            default:
+            myUIStat.text = "effectType default";
+            break;
+        }
+
     }
 }
