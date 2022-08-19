@@ -6,8 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public int speed;
     public ParticleSystem Hiteffect;
-
-
+    
     
 
     private void Update()
@@ -22,10 +21,15 @@ public class Projectile : MonoBehaviour
     {
         if(other.tag == "enemy")
         {
-            Instantiate(Hiteffect);
+            Transform particleTransform = Instantiate(Hiteffect).transform;
+
+            particleTransform.position = this.transform.position;
+
+            Debug.Log("Hit");
+
             die();
             
-            Debug.Log("Hit");
+            
         }
     }
 

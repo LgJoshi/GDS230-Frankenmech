@@ -41,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
         GetStats();
         currentHp = maxHp;
 
-        Instantiate(enemyModelPrefabs[0], enemyBattleStation);
+        Instantiate(enemyModelPrefabs[4], enemyBattleStation);
 
     }
 
