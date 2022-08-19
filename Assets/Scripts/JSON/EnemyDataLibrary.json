@@ -10,14 +10,16 @@
 					"type": "attack",
 					"probability": 4,
 					"mainValue": 2,
-					"subValue": 1
+					"subValue": 1,
+					"buffValue": 1
 				},
 				{
 					"name": "zero2",
 					"type": "attack",
 					"probability": 1,
 					"mainValue": 4,
-					"subValue": 1
+					"subValue": 1,
+					"buffValue": 1
 				}
 			]
 		},
@@ -25,36 +27,40 @@
 			"name": "Regular 1",
             "description": "A very basic and straightforward enemy",
 			"id": 1,
-			"maxHp": 20, 
+			"maxHp": 40, 
 			"attackData": [
 				{
 					"name": "Sword Slash",
 					"type": "attack",
 					"probability": 2,
 					"mainValue": 5,
-					"subValue": 1
+					"subValue": 1,
+					"buffValue": 1
 				},
 				{
 					"name": "Auto Cannon",
-					"type": "multiAttack",
+					"type": "attack",
 					"probability": 3,
 					"mainValue": 2,
-					"subValue": 2
+					"subValue": 2,
+					"buffValue": 1
 				}
 			]
 		},
 		{
 			"name": "Regular 2",
-            "description": "An evasive enemy that keeps you guessing as to what it's going to do. Will passively dodge attacks and gradually become more and more powerful",
+            "description": "An evasive enemy that keeps you guessing as to what it's going to do. Will dodge attacks and gradually become more and more powerful.",
 			"id": 2,
-			"maxHp": 10, 
+			"maxHp": 20, 
+			"dodge":30,
 			"attackData": [
 				{
 					"name": "Auto Pistol",
-					"type": "multiAttack",
-					"probability": 1,
+					"type": "buffAttack",
+					"probability": 2,
 					"mainValue": 1,
-					"subValue": 3
+					"subValue": 3,
+					"buffValue": 1
 				},
 				{
 					"name": "Mini Missile",
@@ -62,42 +68,54 @@
 					"probability": 2,
 					"mainValue": 3,
 					"subValue": 1
+				},
+				{
+					"name": "Buff",
+					"type": "buff",
+					"probability": 1,
+					"mainValue": 2,
+					"subValue": 2,
+					"buffValue": 1
 				}
 			]
 		},
 		{
 			"name": "Elite",
-            "description": "An evasive enemy that keeps you guessing as to what it's going to do. Will passively dodge attacks and gradually become more and more powerful",
+            "description": "A durable, high damage enemy that will gradually wear you down.",
 			"id": 3,
-			"maxHp": 20, 
+			"maxHp": 40, 
 			"attackData": [
 				{
 					"name": "Half Salvo",
-					"type": "multiAttack",
+					"type": "attack",
 					"probability": 4,
 					"mainValue": 2,
-					"subValue": 2
+					"subValue": 2,
+					"buffValue": 1
 				},
 				{
 					"name": "Full Salvo",
-					"type": "multiAttack",
+					"type": "attack",
 					"probability": 1,
 					"mainValue": 2,
-					"subValue": 4
+					"subValue": 4,
+					"buffValue": 1
 				},
 				{
 					"name": "Bunkered Shot",
-					"type": "multiAttack",
+					"type": "attackBlock",
 					"probability": 1,
-					"mainValue": 3,
-					"subValue": 1
+					"mainValue": 6,
+					"subValue": 1,
+					"buffValue": 2
 				},
 				{
 					"name": "Bunker",
 					"type": "block",
 					"probability": 1,
-					"mainValue": 1,
-					"subValue": 1
+					"mainValue": 4,
+					"subValue": 1,
+					"buffValue": 1
 				}
 			]
 		},
@@ -105,35 +123,31 @@
 			"name": "Boss",
             "description": "Watch out for its powerful laser attack.",
 			"id": 4,
-			"maxHp": 50, 
+			"maxHp": 100, 
 			"attackData": [
 				{
 					"name": "Low cal nails",
 					"type": "attack",
-					"probability": 4,
+					"probability": 1,
 					"mainValue": 2,
-					"subValue": 2
+					"subValue": 2,
+					"buffValue": 1
 				},
 				{
 					"name": "Nail Shot",
-					"type": "pierceAttack",
+					"type": "attack",
 					"probability": 1,
 					"mainValue": 5,
-					"subValue": 1
-				},
-				{
-					"name": "Charging",
-					"type": "charge",
-					"probability": 1,
-					"mainValue": 1,
-					"subValue": 1
+					"subValue": 1,
+					"buffValue": 1
 				},
 				{
 					"name": "Laser Beam",
-					"type": "multiAttack",
+					"type": "chargeAttack",
 					"probability": 1,
 					"mainValue": 4,
-					"subValue": 3
+					"subValue": 4,
+					"chargeValue": 3
 				}
 			]
 		}

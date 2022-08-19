@@ -40,7 +40,7 @@ public class CardBehaviour : MonoBehaviour
     {
         //Generate random card id
         //UpdateCardFace();
-        Debug.Log(this.name + " instantiated");
+        //Debug.Log(this.name + " instantiated");
     }
 
     public void GetNewId(int newId )

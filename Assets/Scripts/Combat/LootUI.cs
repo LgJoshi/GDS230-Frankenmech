@@ -33,7 +33,6 @@ public class LootUI : MonoBehaviour
     public void Return()
     {
         SceneManager.LoadScene("RoomGeneration");
-        battleSystem.LootMenuUI.SetActive(false);
     }
 
     public void SelectLoot(int input )

@@ -139,7 +139,6 @@ public class BattleSystem : MonoBehaviour
         
         EventManager.PlayerTurnFunction();
 
-        enemyUnit.ChooseNextAction();
         hudController.UpdateEnemyIntent();
     }
 

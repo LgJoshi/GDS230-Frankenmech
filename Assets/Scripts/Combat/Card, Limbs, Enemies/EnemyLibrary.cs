@@ -15,6 +15,8 @@ public class EnemyLibrary : MonoBehaviour
         public int probability;
         public int mainValue;
         public int subValue;
+        public int buffValue;
+        public int chargeValue;
     }
     
     [System.Serializable]
@@ -24,6 +26,7 @@ public class EnemyLibrary : MonoBehaviour
         public string description = "default enemyDescription";
         public int maxHp = 99;
         public List<AttackData> attackData;
+        public int dodge = 0;
     }
 
     [System.Serializable]
