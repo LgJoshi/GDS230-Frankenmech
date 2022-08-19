@@ -9,9 +9,12 @@ public class BattleSystem : MonoBehaviour
 {
     public GameObject LootMenuUI;
     public ParticleSystem MissileTrail;
-    public ParticleSystem Laser;
+    public GameObject Laser;
     public Transform laserposition;
     public Transform missileposition;
+    public ParticleSystem shield;
+    public Transform ShieldPosition;
+
 
     public GameObject Missile;
 
@@ -158,7 +161,9 @@ public class BattleSystem : MonoBehaviour
 
 
         Instantiate(Missile, missileposition);
-        
+
+        Instantiate(shield, ShieldPosition);
+
 
     }
 

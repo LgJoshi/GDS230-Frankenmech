@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100002, guid: f7efb0d9df2264096af57128df85dddb, type: 3}
       propertyPath: m_Name
-      value: Effect_02
+      value: Hit_Explosion01
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f7efb0d9df2264096af57128df85dddb, type: 3}
       propertyPath: m_RootOrder
