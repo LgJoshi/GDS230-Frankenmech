@@ -6749,6 +6749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MyAudioSource: {fileID: 1858098696}
+  bossFight: 0
   LootMenuUI: {fileID: 1274745482}
   MissileTrail: {fileID: 0}
   Laser: {fileID: 7243838760319262285, guid: 296e6e5d13903ed48914a1ae260e4aab, type: 3}
@@ -6804,7 +6805,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cd268896f2a2cb54396bf795b392ac6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 37cf9a21e3db8f0499ae4ac899bcb7a5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.099
   m_Pitch: 1

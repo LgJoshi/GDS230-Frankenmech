@@ -40,6 +40,11 @@ public class EnemyBehaviour : MonoBehaviour
         EventManager.PlayerTurnEvent -= ChooseNextAction;
     }
 
+    
+
+
+
+
     void Start(){
         enemyLibrary = GetComponentInParent(typeof(EnemyLibrary)) as EnemyLibrary;
         GetStats();

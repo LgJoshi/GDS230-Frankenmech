@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
 
+
     public AudioSource m_MyAudioSource;
 
-    
+    public bool bossFight;
 
 
 
@@ -176,7 +178,9 @@ public class BattleSystem : MonoBehaviour
 
     void EndBattle()
     {
-        if( state == BattleState.WON )
+
+
+        if( state == BattleState.WON)
         {
             hudController.ChangeDialogueText("You won!");
             GameObject.Find("Singleton").GetComponent<SingletonDataStorage>().playerHp = playerManager.playHP;
@@ -186,13 +190,17 @@ public class BattleSystem : MonoBehaviour
             //Time.timeScale = 0f;
             m_MyAudioSource.Stop();
 
+            BossCheck();
+
         }
         if( state == BattleState.LOST )
         {
             hudController.ChangeDialogueText("You lost!");
             m_MyAudioSource.Stop();
+            SceneManager.LoadScene("Main_Menu");
         }
 
+        
         
 
 
@@ -200,6 +208,20 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    void BossCheck()
+    {
+        if(enemyUnit.myId == 4)
+        {
+            bossFight = true;
+        }
+        if(bossFight == true)
+        {
+            SceneManager.LoadScene("Main_Menu");
+
+            Debug.Log("You have beaten the boss");
+        }
+
+    }
    
 
 

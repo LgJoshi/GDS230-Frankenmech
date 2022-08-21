@@ -247,6 +247,9 @@ public class PlayerManager : MonoBehaviour
         if( playHP <= 0 )
         {
             return true;
+
+
+
         } else
         {
             return false;
