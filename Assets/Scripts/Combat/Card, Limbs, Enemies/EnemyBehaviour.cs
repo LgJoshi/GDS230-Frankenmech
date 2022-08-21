@@ -76,14 +76,19 @@ public class EnemyBehaviour : MonoBehaviour
         switch( GameObject.Find("Singleton").GetComponent<SingletonDataStorage>().enemyType )
         {
             case 1:
-            myId = Random.Range(1, 3);
+            //myId = Random.Range(1, 3);
+            myId = 1;
             break;
 
             case 2:
-            myId = 3;
+            myId = 2;
             break;
 
             case 3:
+            myId = 3;
+            break;
+
+            case 4:
             myId = 4;
             break;
 
@@ -107,11 +112,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     //take damage and return true if dead
     public bool TakeDamage(int input){
-        int dodgeRand = Random.Range(0, 101);
+        int dodgeRand = Random.Range(1, 101);
 
         if( dodgeRand > myDodge )
         {
-            currentHp -= input;
+            currentHp -= (input-myBlock);
             if( currentHp <= 0 )
             {
                 return true;
@@ -203,7 +208,7 @@ public class EnemyBehaviour : MonoBehaviour
                     nextAttackValue = data.mainValue.ToString() + " block";
                     break;
 
-                    case "blockAttack":
+                    case "attackBlock":
                     nextAttackDamage = (data.mainValue + data.buffValue) * data.subValue;
                     nextAttackValue = data.mainValue.ToString() + " x " + data.subValue.ToString() + " damage. Block for " + data.buffValue.ToString();
                     myBlock = data.buffValue;
@@ -234,8 +239,6 @@ public class EnemyBehaviour : MonoBehaviour
         {
             case "attack":
             case "buffAttack":
-            case "blockAttack":
-
                 if (nextAttackLimb == "right")
                     Instantiate(particle[nextAttackParticle], firePoint1);
 
@@ -246,11 +249,24 @@ public class EnemyBehaviour : MonoBehaviour
 
                 Instantiate(particle[0], hitEffect);
 
-                break; 
+                break;
+
+            case "attackBlock":
+
+                if( nextAttackLimb == "right" )
+                    Instantiate(particle[nextAttackParticle], firePoint1);
+                if( nextAttackLimb == "left" )
+                    Instantiate(particle[nextAttackParticle], firePoint2);
+                
+                Instantiate(particle[0], hitEffect);
+
+                Instantiate(particle[6], buffPoint);
+
+                break;
 
             case "buff":
 
-                Instantiate(particle[nextAttackParticle], buffPoint);    
+                Instantiate(particle[7], selfEffectLocation);    
                 break;
 
             case "chargeAttack":
@@ -292,6 +308,11 @@ public class EnemyBehaviour : MonoBehaviour
                 }
               
                 break;
+
+            case "block":
+                Instantiate(particle[6], buffPoint);
+                break;
+
             default:
                 Debug.Log("anything");
                 break;

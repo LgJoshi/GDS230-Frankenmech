@@ -16,7 +16,7 @@ public class DodgeEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myTransform.anchoredPosition += new Vector2(0.1f, 0);
+        myTransform.anchoredPosition += new Vector2(0.07f, 0);
     }
 
     IEnumerator Disappear()

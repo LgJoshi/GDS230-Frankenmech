@@ -149,7 +149,7 @@ public class BattleSystem : MonoBehaviour
 
     void PlayerTurn()
     {
-        hudController.ChangeDialogueText("Choose an action:");
+        hudController.ChangeDialogueText("Play your cards:");
         
         EventManager.PlayerTurnFunction();
 

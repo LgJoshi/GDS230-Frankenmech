@@ -22445,7 +22445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb142f453e367904193de5a9315745fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 3
+  enemyType: 4
 --- !u!65 &1252229086
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34110,7 +34110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb142f453e367904193de5a9315745fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 1
+  enemyType: 2
 --- !u!65 &1977268261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36624,7 +36624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb142f453e367904193de5a9315745fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 2
+  enemyType: 3
 --- !u!65 &2095371082
 BoxCollider:
   m_ObjectHideFlags: 0

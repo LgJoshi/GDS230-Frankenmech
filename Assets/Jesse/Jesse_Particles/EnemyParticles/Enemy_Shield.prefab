@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4864688443428518399, guid: 6746f6ef3165ba84fa4f53fbcf377b3b, type: 3}
       propertyPath: SizeModule.curve.scalar
-      value: 13
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4864688443428518399, guid: 6746f6ef3165ba84fa4f53fbcf377b3b, type: 3}
       propertyPath: SizeModule.separateAxes
