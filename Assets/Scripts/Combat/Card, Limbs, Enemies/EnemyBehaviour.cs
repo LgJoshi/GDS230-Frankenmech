@@ -196,7 +196,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public int DamageCheck()
     {
-        Instantiate(particle[0]);
+        Instantiate(particle[0], hitEffect);
 
 
         return nextAttackDamage;
