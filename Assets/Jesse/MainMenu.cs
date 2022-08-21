@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
 
     public string firstLevel;
+    public string credits;
 
     SingletonDataStorage singletonDataStorage;
 
@@ -41,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadCredits()
     {
-
+        SceneManager.LoadScene(credits);
     }
 
     public void QuitGame()

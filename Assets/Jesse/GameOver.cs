@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 
-    public string level;
+    public string mainMenu;
+    public string credits;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,12 @@ public class GameOver : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(mainMenu);
     }
 
     public void Credits()
     {
-
+        SceneManager.LoadScene(credits);
     }
 
     public void QuitGame()

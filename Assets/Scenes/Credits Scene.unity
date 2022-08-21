@@ -257,19 +257,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer
-
-    Design
-
-    Mech & Environment Models - Nathan
-
-
-
-    X
-    Asset from "insert source here"
-
-
-    Special Thanks'
+  m_text: "Design & Production - \r\n\r\n\n\n\nProgramming - \r\n\r\n\n\n\nLevel
+    Design -\r\n\n\r\nMech 3D Models - \r\n\r\nUI & 2D Art - \r\n\r\nParticle Effects
+    - \r\n\r\nSpecial Thanks - \r\n\r\n\nAudio Sourced from Freesound.com\r\n\r\nfurbyguy
+    - \r\nfurbyguy - \r\nJarusca - \r\ndeleted_user_1941307 - \r\nnewlocknew - \r\nflorianreichelt
+    - \r\n\r\nParticles Sourced from \nUnity Asset Store\r\n\r\nProcedural Fire -
+    \r\nCartoon FX - \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
   m_sharedMaterial: {fileID: 2310697500558127121, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
@@ -539,19 +532,82 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Programmer
+  m_text: 'Josh
 
-    Design
+    Nathan
 
-    Mech & Environment Models - Nathan
+    Jesse
+
+    Cooper
+
+    
+
+    Josh
+
+    Nathan
+
+    Jesse
+
+    Cooper
+
+    
+
+    Nathan
+
+    Cooper
+
+    
+
+    Nathan
+
+    
+
+    Jesse
+
+    
+
+    Jesse
+
+    
+
+    Zhia
+    Zariko
+
+    SAE Melbourne
+
+    
+
+    
+
+    
 
 
+    Battle Music
 
-    X
-    Asset from "insert source here"
+    Overworld
+    Music
+
+    Rocket Launch
+
+    Hit Damage
+
+    Electricity Damage
+
+    Burning
+    Sound
+
+    
+
+    
+
+    
 
 
-    Special Thanks'
+    Hovl Studio
+
+    Jean Moreno
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
   m_sharedMaterial: {fileID: 2310697500558127121, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
@@ -865,9 +921,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.32941177, g: 0.32156864, b: 0.32156864, a: 1}
+    m_PressedColor: {r: 0.13725491, g: 0.37254903, b: 0.7176471, a: 1}
+    m_SelectedColor: {r: 0.32941177, g: 0.32156864, b: 0.32156864, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
