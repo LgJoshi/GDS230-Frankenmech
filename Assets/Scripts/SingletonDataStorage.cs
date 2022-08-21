@@ -10,6 +10,8 @@ public class SingletonDataStorage : MonoBehaviour
     //1 for regular, 2 for elite, 3 for boss
     public int enemyType;
 
+    public int playerHp;
+
     public List<int>[] playerDeckLoadoutIds = new List<int>[3];
     //3rd slot is for legs
     public int[] playerLimbLoadoutIds;
@@ -55,6 +57,8 @@ public class SingletonDataStorage : MonoBehaviour
         playerDeckLoadoutIds[2].Add(1);
         playerDeckLoadoutIds[2].Add(4);
         playerDeckLoadoutIds[2].Add(1);
+
+        playerHp = 50;
     }
 
     public void ChangeLimb(int limbInt, int newLimbId, List<int> newCardIds )

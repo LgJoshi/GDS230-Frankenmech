@@ -5,7 +5,7 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int playHP = 50;
+    public int playHP = 69;
     public int maxHp = 50;
     
     int cardDrawPower = 3;
@@ -82,6 +82,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         currentEnergy = maxEnergy;
+        playHP = singletonDataStorage.playerHp;
     }
 
     void DrawCards()

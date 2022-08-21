@@ -179,8 +179,8 @@ public class BattleSystem : MonoBehaviour
         if( state == BattleState.WON )
         {
             hudController.ChangeDialogueText("You won!");
+            GameObject.Find("Singleton").GetComponent<SingletonDataStorage>().playerHp = playerManager.playHP;
 
-           
             LootMenuUI.SetActive(true);
 
             //Time.timeScale = 0f;

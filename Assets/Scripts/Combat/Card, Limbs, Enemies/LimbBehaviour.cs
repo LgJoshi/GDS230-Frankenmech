@@ -99,7 +99,7 @@ public class LimbBehaviour : MonoBehaviour
 
     void MultiplyStat(int input)
     {
-        effectIntTwo = input;
+        effectIntTwo *= input;
     }
 
     void UpdateUI()

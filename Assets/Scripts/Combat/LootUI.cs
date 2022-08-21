@@ -12,6 +12,7 @@ public class LootUI : MonoBehaviour
     int lootId = 0;
     int replacedLimb = 0;
     [SerializeField] Image[] limbImages;
+    [SerializeField] GameObject missingFeatureObject;
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +47,10 @@ public class LootUI : MonoBehaviour
 
     public void Take()
     {
-        singletonDataStorage.playerLimbLoadoutIds[replacedLimb] = lootId;
+        //singletonDataStorage.playerLimbLoadoutIds[replacedLimb] = lootId;
+        //SceneManager.LoadScene("RoomGeneration");
 
-        SceneManager.LoadScene("RoomGeneration");
-
+        missingFeatureObject.SetActive(true);
     }
 
 
