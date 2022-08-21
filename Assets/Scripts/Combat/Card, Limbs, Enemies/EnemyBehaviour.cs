@@ -19,6 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
     public int currentHp = 15;
     public int myBlock = 0;
     int myDodge = 0;
+    int myBuffAmount = 0;
 
     int nextAttackDamage = 0;
     public string nextAttack = "punch";
@@ -145,16 +146,17 @@ public class EnemyBehaviour : MonoBehaviour
                 {
                     case "attack":
                     nextAttackDamage = data.mainValue * data.subValue;
-                    nextAttackValue = (data.mainValue + data.buffValue).ToString() + " x " + data.subValue.ToString() + " damage";
+                    nextAttackValue = (data.mainValue).ToString() + " x " + data.subValue.ToString() + " damage";
                     break;
 
                     case "buffAttack":
-                    nextAttackDamage = (data.mainValue+data.buffValue) * data.subValue;
-                    nextAttackValue = (data.mainValue + data.buffValue).ToString() + " x " + data.subValue.ToString() + " damage";
+                    nextAttackDamage = (data.mainValue+ myBuffAmount) * data.subValue;
+                    nextAttackValue = (data.mainValue + myBuffAmount).ToString() + " x " + data.subValue.ToString() + " damage";
                     break;
 
                     case "buff":
-                    ChangeBuffValue(data);
+                    //ChangeBuffValue(data);
+                    myBuffAmount += data.buffValue;
                     nextAttackDamage = 0;
                     nextAttackValue = "1 increase in damage";
                     break;
@@ -197,10 +199,12 @@ public class EnemyBehaviour : MonoBehaviour
         
     }
 
+    /*
     void ChangeBuffValue( EnemyLibrary.AttackData data )
     {
         data.buffValue += 1;
     }
+    */
 
     public int DamageCheck()
     {
