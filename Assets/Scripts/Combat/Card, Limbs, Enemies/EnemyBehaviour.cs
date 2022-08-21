@@ -10,7 +10,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     public Transform enemyBattleStation;
     public Transform hitEffect;
-
+    [SerializeField] Transform selfEffectLocation;
+    [SerializeField] GameObject dodgeEffect;
 
     public string myName;
     public int myId = 0;
@@ -104,6 +105,8 @@ public class EnemyBehaviour : MonoBehaviour
         } else
         {
             Debug.Log("DODGED");
+            GameObject effect = Instantiate(dodgeEffect);
+            effect.transform.position = selfEffectLocation.transform.position;
             return false;
         }
 

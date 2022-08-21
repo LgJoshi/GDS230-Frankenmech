@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3006187548292682822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6413512697989350132}
+  m_Layer: 0
+  m_Name: EffectLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6413512697989350132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3006187548292682822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.35, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3722195550902630895}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3722195550902630892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3722195550902630895}
+  - component: {fileID: 3722195550902630894}
+  m_Layer: 0
+  m_Name: Enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3722195550902630895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722195550902630892}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4.3302794, y: 0, z: 16.930256}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6413512697989350132}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &3722195550902630894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722195550902630892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827a4ce05727701429631dd5cd179dce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle:
+  - {fileID: 3182916487560307032, guid: 9664eb40d35c20446a12f1199d4f66f0, type: 3}
+  - {fileID: 6866383372044081038, guid: a1a2972afcc6a7f43b8c5d6693c33164, type: 3}
+  - {fileID: 3471956824181300457, guid: 24c1b2605b4856f46a093604f41ce62d, type: 3}
+  - {fileID: 775171262509319247, guid: ccd9c6942c716fb42a301e24a0b6230d, type: 3}
+  - {fileID: 3182916487560307032, guid: 9664eb40d35c20446a12f1199d4f66f0, type: 3}
+  - {fileID: 8614949781593781034, guid: 7919a1585b3487a4ebbdd219d6139bde, type: 3}
+  enemyBattleStation: {fileID: 0}
+  hitEffect: {fileID: 0}
+  selfEffectLocation: {fileID: 6413512697989350132}
+  dodgeEffect: {fileID: 0}
+  myName: 
+  myId: 1
+  maxHp: 30
+  currentHp: 15
+  myBlock: 0
+  nextAttack: punch
+  nextAttackValue: 0
+  attackData: []
+  enemyModelPrefabs:
+  - {fileID: 2327021458054688773, guid: 5c978e23161404a4d9471cd06061cac8, type: 3}
+  - {fileID: 5379206825822160216, guid: 8c9727e9f2d29884cbdd1225162188f3, type: 3}
+  - {fileID: 1185917847714859381, guid: 1a3a3c5439931fa478a32b2eb6d91a5a, type: 3}
+  - {fileID: 971125941250313301, guid: 2361a353a41c9354ca65ffd688a923a4, type: 3}
+  - {fileID: 6091121648428425439, guid: f342199784aa9234789e7c1f29f21760, type: 3}
