@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455966148536887538}
   m_Layer: 0
-  m_Name: FirePoint
+  m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,11 +25,42 @@ Transform:
   m_GameObject: {fileID: 1837703074127207251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 24.92, y: -4, z: 15.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.19409935, y: 0.19409935, z: 0.19409935}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6900590438461536869}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4585602564122238978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6188263945879281206}
+  m_Layer: 0
+  m_Name: BuffPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6188263945879281206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4585602564122238978}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0000051727293, y: -25.760006, z: 5.151993}
+  m_LocalScale: {x: 0.19409935, y: 0.19409935, z: 0.19409935}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6900590438461536869}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9051736124051633314
 GameObject:
@@ -56,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 9051736124051633314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -27.5, y: -2.62, z: 32.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.19409935, y: 0.19409935, z: 0.19409935}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6900590438461536869}

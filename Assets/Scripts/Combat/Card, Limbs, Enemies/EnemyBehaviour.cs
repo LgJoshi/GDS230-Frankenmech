@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    string nextAttackType;
+    string nextAttackLimb;
+    int nextAttackParticle;
+    bool isChargeFinished = false;
+
+
+    [SerializeField] Transform firePoint1;
+    [SerializeField] Transform firePoint2;
+    [SerializeField] Transform buffPoint;
+
 
     [SerializeField] ParticleSystem[] particle;
+
+
+
 
 
     public Transform enemyBattleStation;
@@ -52,8 +65,11 @@ public class EnemyBehaviour : MonoBehaviour
         GetStats();
         currentHp = maxHp;
 
-        Instantiate(enemyModelPrefabs[myId], enemyBattleStation);
-
+         
+       GameObject enemyPrefab = Instantiate(enemyModelPrefabs[myId], enemyBattleStation);
+        firePoint1 = enemyPrefab.transform.Find("FirePoint1");
+        firePoint2 = enemyPrefab.transform.Find("FirePoint2");
+        buffPoint = enemyPrefab.transform.Find("BuffPoint");
     }
 
     void GetStats(){
@@ -140,6 +156,10 @@ public class EnemyBehaviour : MonoBehaviour
                 Debug.Log("new choiceNum: " + choiceNum);
             } else
             {
+                nextAttackType = data.type;
+                nextAttackLimb = data.limbLeftRight;
+                nextAttackParticle = data.particleValue;
+
                 nextAttack = data.name;
                 Debug.Log("Chosen " + data.name);
                 switch( data.type )
@@ -169,6 +189,7 @@ public class EnemyBehaviour : MonoBehaviour
                         nextAttackDamage = data.mainValue * data.subValue;
                         nextAttackValue = (data.mainValue + data.buffValue).ToString() + " x " + data.subValue.ToString() + " charge expended damage";
                         charge = 0;
+                        isChargeFinished = true;
                     } else
                     {
                         nextAttack = "Charge ";
@@ -208,7 +229,72 @@ public class EnemyBehaviour : MonoBehaviour
 
     public int DamageCheck()
     {
-        Instantiate(particle[0], hitEffect);
+
+        switch (nextAttackType)
+        {
+            case "attack":
+            case "buffAttack":
+            case "blockAttack":
+
+                if (nextAttackLimb == "right")
+                    Instantiate(particle[nextAttackParticle], firePoint1);
+
+                if(nextAttackLimb == "left")
+                {
+                    Instantiate(particle[nextAttackParticle], firePoint2);
+                }
+                break; 
+
+            case "buff":
+
+                Instantiate(particle[nextAttackParticle], buffPoint);    
+                break;
+
+            case "chargeAttack":
+
+                if(isChargeFinished == true)
+                {
+                    if (nextAttackLimb == "right")
+                        Instantiate(particle[nextAttackParticle], firePoint1);
+
+                    if (nextAttackLimb == "left")
+                    {
+                        Instantiate(particle[nextAttackParticle], firePoint2);
+                    }
+
+                    isChargeFinished = false;
+                }
+                else
+                {
+                    switch (charge)
+                    {
+                        case 1:
+                            Instantiate(particle[1], buffPoint);
+                            break;
+                        case 2:
+                            Instantiate(particle[2], buffPoint);
+                            break;
+                        case 3:
+                            Instantiate(particle[3], buffPoint);
+                            break;
+
+                        default:
+                            Debug.Log("anything");
+                            break;
+
+
+                    }
+                }
+              
+                break;
+            default:
+                Debug.Log("anything");
+                break;
+
+        }
+
+
+
 
 
         return nextAttackDamage;

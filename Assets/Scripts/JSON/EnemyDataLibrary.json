@@ -12,7 +12,8 @@
 					"mainValue": 2,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "left"
 				},
 				{
 					"name": "zero2",
@@ -21,7 +22,8 @@
 					"mainValue": 4,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "right"
 				}
 			]
 		},
@@ -38,7 +40,8 @@
 					"mainValue": 5,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 3
+					"particleValue": 3,
+					"limbLeftRight": "left"
 				},
 				{
 					"name": "Auto Cannon",
@@ -47,7 +50,8 @@
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "right"
 				}
 			]
 		},
@@ -65,7 +69,8 @@
 					"mainValue": 1,
 					"subValue": 3,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "left"
 
 				},
 				{
@@ -74,7 +79,8 @@
 					"probability": 2,
 					"mainValue": 3,
 					"subValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "right"
 				},
 				{
 					"name": "Buff",
@@ -100,7 +106,8 @@
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "left"
 				},
 				{
 					"name": "Full Salvo",
@@ -109,7 +116,8 @@
 					"mainValue": 2,
 					"subValue": 4,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "left"
 				},
 				{
 					"name": "Bunkered Shot",
@@ -118,7 +126,8 @@
 					"mainValue": 6,
 					"subValue": 1,
 					"buffValue": 2,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "left"
 				},
 				{
 					"name": "Bunker",
@@ -127,7 +136,8 @@
 					"mainValue": 4,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 1,
+					"limbLeftRight": "right"
 				}
 			]
 		},
@@ -138,31 +148,34 @@
 			"maxHp": 100, 
 			"attackData": [
 				{
-					"name": "Low cal nails",
+					"name": "Double Shot",
 					"type": "attack",
 					"probability": 1,
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 0,
+					"limbLeftRight": "left"
 				},
 				{
-					"name": "Nail Shot",
+					"name": "Cannon Shot",
 					"type": "attack",
 					"probability": 1,
 					"mainValue": 5,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 0,
+					"limbLeftRight": "left"
 				},
 				{
 					"name": "Laser Beam",
 					"type": "chargeAttack",
-					"probability": 1,
+					"probability": 10,
 					"mainValue": 4,
 					"subValue": 4,
 					"chargeValue": 3,
-					"particleValue": 1
+					"particleValue": 5,
+					"limbLeftRight": "right"
 				}
 			]
 		}

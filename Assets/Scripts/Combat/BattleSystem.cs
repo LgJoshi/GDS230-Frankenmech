@@ -197,7 +197,7 @@ public class BattleSystem : MonoBehaviour
         {
             hudController.ChangeDialogueText("You lost!");
             m_MyAudioSource.Stop();
-            SceneManager.LoadScene("Main_Menu");
+            SceneManager.LoadScene("Death_Scene");
         }
 
         
@@ -216,12 +216,19 @@ public class BattleSystem : MonoBehaviour
         }
         if(bossFight == true)
         {
-            SceneManager.LoadScene("Main_Menu");
+            SceneManager.LoadScene("Victory_Scene");
 
             Debug.Log("You have beaten the boss");
         }
 
     }
+
+
+    void SetFirePoint()
+    {
+
+    }
+
    
 
 
