@@ -10,6 +10,7 @@ public class PlayerCheckpoints : MonoBehaviour
     float rotSpeed;
     public float speed;
     float WPradius = 1;
+    [SerializeField] GameObject playerModel;
 
     SingletonDataStorage singletonDataStorage;
 
@@ -35,6 +36,12 @@ public class PlayerCheckpoints : MonoBehaviour
             
         }
         transform.position = Vector3.MoveTowards(transform.position, checkpoints[current].transform.position, Time.deltaTime * speed);
+        playerModel.transform.rotation = 
+            Quaternion.RotateTowards(
+                playerModel.transform.rotation, 
+                checkpoints[current].transform.rotation * Quaternion.Euler(0, 90, 0),
+                1f
+                );
 
     }
 
