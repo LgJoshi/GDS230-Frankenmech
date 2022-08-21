@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public int speed;
     public ParticleSystem Hiteffect;
-    
+    public AudioSource playSound;
     
 
     private void Update()
@@ -21,17 +21,25 @@ public class Projectile : MonoBehaviour
     {
         if(other.tag == "enemy")
         {
+            playSound.Play();
+
             Transform particleTransform = Instantiate(Hiteffect).transform;
 
             particleTransform.position = this.transform.position;
 
             Debug.Log("Hit");
 
+            
+
             die();
             
             
         }
     }
+
+
+
+
 
 
     void die()

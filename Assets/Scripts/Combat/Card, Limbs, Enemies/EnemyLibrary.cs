@@ -17,6 +17,7 @@ public class EnemyLibrary : MonoBehaviour
         public int subValue;
         public int buffValue;
         public int chargeValue;
+        public int particleValue;
     }
     
     [System.Serializable]

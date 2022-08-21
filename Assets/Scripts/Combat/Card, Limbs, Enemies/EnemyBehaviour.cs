@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 
-
+    [SerializeField] ParticleSystem[] particle;
 
 
     public Transform enemyBattleStation;
-
+    public Transform hitEffect;
 
 
     public string myName;
@@ -196,6 +196,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     public int DamageCheck()
     {
+        Instantiate(particle[0]);
+
+
         return nextAttackDamage;
     }
 }

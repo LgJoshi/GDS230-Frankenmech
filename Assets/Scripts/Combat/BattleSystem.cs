@@ -7,6 +7,13 @@ public enum BattleState { START, PLAYERTURN, PLAYERATTACK, ENEMYTURN, WON, LOST}
 
 public class BattleSystem : MonoBehaviour
 {
+
+    public AudioSource m_MyAudioSource;
+
+    
+
+
+
     public GameObject LootMenuUI;
     public ParticleSystem MissileTrail;
     public GameObject Laser;
@@ -43,8 +50,8 @@ public class BattleSystem : MonoBehaviour
 
     private void Start()
     {
-        
-
+        m_MyAudioSource.Play();
+       
 
         state = BattleState.START;
         StartCoroutine(SetupBattle());
@@ -177,12 +184,23 @@ public class BattleSystem : MonoBehaviour
             LootMenuUI.SetActive(true);
 
             //Time.timeScale = 0f;
-
+            m_MyAudioSource.Stop();
 
         }
         if( state == BattleState.LOST )
         {
             hudController.ChangeDialogueText("You lost!");
+            m_MyAudioSource.Stop();
         }
+
+        
+
+
+
+
     }
+
+   
+
+
 }
