@@ -73,7 +73,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     void GetStats(){
-        switch( GameObject.FindObjectOfType<SingletonDataStorage>().enemyType )
+        switch( GameObject.Find("Singleton").GetComponent<SingletonDataStorage>().enemyType )
         {
             case 1:
             myId = Random.Range(1, 3);
