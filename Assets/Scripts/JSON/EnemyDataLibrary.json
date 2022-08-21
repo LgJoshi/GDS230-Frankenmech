@@ -12,7 +12,7 @@
 					"mainValue": 2,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 0,
 					"limbLeftRight": "left"
 				},
 				{
@@ -22,7 +22,7 @@
 					"mainValue": 4,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 0,
 					"limbLeftRight": "right"
 				}
 			]
@@ -40,7 +40,7 @@
 					"mainValue": 5,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 3,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 				},
 				{
@@ -50,7 +50,7 @@
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 4,
 					"limbLeftRight": "right"
 				}
 			]
@@ -69,7 +69,7 @@
 					"mainValue": 1,
 					"subValue": 3,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 
 				},
@@ -79,7 +79,7 @@
 					"probability": 2,
 					"mainValue": 3,
 					"subValue": 1,
-					"particleValue": 1,
+					"particleValue": 4,
 					"limbLeftRight": "right"
 				},
 				{
@@ -89,7 +89,7 @@
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 1
+					"particleValue": 7
 				}
 			]
 		},
@@ -106,7 +106,7 @@
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 				},
 				{
@@ -116,7 +116,7 @@
 					"mainValue": 2,
 					"subValue": 4,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 				},
 				{
@@ -126,7 +126,7 @@
 					"mainValue": 6,
 					"subValue": 1,
 					"buffValue": 2,
-					"particleValue": 1,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 				},
 				{
@@ -136,7 +136,7 @@
 					"mainValue": 4,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 1,
+					"particleValue": 6,
 					"limbLeftRight": "right"
 				}
 			]
@@ -154,7 +154,7 @@
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,
-					"particleValue": 0,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 				},
 				{
@@ -164,13 +164,13 @@
 					"mainValue": 5,
 					"subValue": 1,
 					"buffValue": 1,
-					"particleValue": 0,
+					"particleValue": 4,
 					"limbLeftRight": "left"
 				},
 				{
 					"name": "Laser Beam",
 					"type": "chargeAttack",
-					"probability": 10,
+					"probability": 1,
 					"mainValue": 4,
 					"subValue": 4,
 					"chargeValue": 3,

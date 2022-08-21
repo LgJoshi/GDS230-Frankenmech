@@ -243,6 +243,9 @@ public class EnemyBehaviour : MonoBehaviour
                 {
                     Instantiate(particle[nextAttackParticle], firePoint2);
                 }
+
+                Instantiate(particle[0], hitEffect);
+
                 break; 
 
             case "buff":
@@ -261,6 +264,8 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         Instantiate(particle[nextAttackParticle], firePoint2);
                     }
+
+                    Instantiate(particle[0], hitEffect);
 
                     isChargeFinished = false;
                 }

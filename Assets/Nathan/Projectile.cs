@@ -35,6 +35,21 @@ public class Projectile : MonoBehaviour
             
             
         }
+        if(other.tag == "player")
+        {
+            playSound.Play();
+
+            Transform particleTransform = Instantiate(Hiteffect).transform;
+
+            particleTransform.position = this.transform.position;
+
+            Debug.Log("Hit");
+
+
+
+            die();
+        }
+
     }
 
 
