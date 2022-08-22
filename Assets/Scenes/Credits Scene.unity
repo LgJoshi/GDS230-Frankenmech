@@ -260,9 +260,11 @@ MonoBehaviour:
   m_text: "Design & Production - \r\n\r\n\n\n\nProgramming - \r\n\r\n\n\n\nLevel
     Design -\r\n\n\r\nMech 3D Models - \r\n\r\nUI & 2D Art - \r\n\r\nParticle Effects
     - \r\n\r\n\nSpecial Thanks - \r\n\r\n\n\n\n3D Environment from \n\nSci-Fi / Industrial
-    - \n\n\n\nAudio from\n\r\nBattle Music -\nOverworld Music -\nRocket Launch -\nHit
-    Damage -\nElectricity Damage -\nBurning Sound -\n \r\n\n\r\nParticles from \n\r\nProcedural
-    Fire - \r\nCartoon FX - \r\n"
+    - \n\n\n\nAudio from\n\r\n                                                        
+    Music\n\nBattle Music -\nOverworld Music -\nMenu Music - \nVictory Music -\nGame
+    Over Music -\nCredits Music - \n\n                                                   
+    SFX\nRocket Launch -\nHit Damage -\nElectricity Damage -\nBurning Sound -\n \r\n\n\r\nParticles
+    from \n\r\nProcedural Fire - \r\nCartoon FX - \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
   m_sharedMaterial: {fileID: 2310697500558127121, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
@@ -586,9 +588,21 @@ MonoBehaviour:
     Freesound.com
 
 
+
+
     furbyguy
 
     furbyguy
+
+    Bertsz
+
+    frankum
+
+    headphonesvocal
+
+    Warlightwolf
+
+
 
     Jarusca
 
