@@ -12,7 +12,7 @@ public class PlayerCheckpoints : MonoBehaviour
     public GameObject[] checkpoints;
     public int current;
     float rotSpeed;
-    public float speed;
+    float speed = 30f;
     float WPradius = 1;
     [SerializeField] GameObject playerModel;
 
@@ -28,12 +28,13 @@ public class PlayerCheckpoints : MonoBehaviour
         Debug.Log("player CP script start");
 
         transform.position = checkpoints[current].transform.position;
+
     }
 
     void Update()
     {
         
-        if (Input.GetKeyDown("space") && canMove) 
+        if (Input.GetKey("space") && canMove) 
         {
             if (Vector3.Distance(checkpoints[current].transform.position, transform.position) < WPradius)
             {
@@ -46,7 +47,7 @@ public class PlayerCheckpoints : MonoBehaviour
             Quaternion.RotateTowards(
                 playerModel.transform.rotation, 
                 checkpoints[current].transform.rotation * Quaternion.Euler(0, 90, 0),
-                1f
+                2f
                 );
 
     }
