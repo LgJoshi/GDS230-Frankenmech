@@ -60,7 +60,7 @@
             "description": "An evasive enemy that keeps you guessing as to what it's going to do. Will dodge attacks and gradually become more and more powerful.",
 			"id": 2,
 			"maxHp": 20, 
-			"dodge":30,
+			"dodge": 20,
 			"attackData": [
 				{
 					"name": "Auto Pistol",

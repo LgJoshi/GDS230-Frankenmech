@@ -6,6 +6,7 @@ public class TutorialUI : MonoBehaviour
 {
     public GameObject tutorialUI;
 
+    [SerializeField] PlayerCheckpoints playerMoveScript;
 
     public GameObject[] tutorial;
     int image;
@@ -14,8 +15,18 @@ public class TutorialUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        image = 0;
-        tutorialUI.SetActive(true);
+        if( playerMoveScript.current > 1 )
+        {
+            playerMoveScript.canMove = true;
+            tutorialUI.SetActive(false);
+            Destroy(this);
+        } else
+        {
+            playerMoveScript.canMove = false;
+            image = 0;
+            tutorialUI.SetActive(true);
+        }
+
     }
 
     // Update is called once per frame
@@ -54,6 +65,7 @@ public class TutorialUI : MonoBehaviour
         }
         else if (image > 6)
         {
+            playerMoveScript.canMove = true;
             tutorialUI.SetActive(false);
         }
 

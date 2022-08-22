@@ -80,7 +80,7 @@ public class BattleSystem : MonoBehaviour
         hudController.SetPlayerHUD(playerManager);
         hudController.SetEnemyHUD(enemyUnit);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         state = BattleState.PLAYERTURN;
         
@@ -90,6 +90,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        hudController.ChangeDialogueText("Limb activation");
+
         playerManager.UpdateBlockDodge();
         playerManager.DiscardCards();
 
@@ -97,7 +99,7 @@ public class BattleSystem : MonoBehaviour
 
         hudController.UpdateEnemyHp();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
 
         if( isDead )
         {
@@ -115,9 +117,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        hudController.ChangeDialogueText(enemyUnit.myName + " Turn ");
+        //hudController.ChangeDialogueText(enemyUnit.myName + " Turn ");
+        hudController.ChangeDialogueText("Enemy Turn ");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         int actionTurn = Random.Range(0, 10);
 
@@ -128,7 +131,7 @@ public class BattleSystem : MonoBehaviour
         isDead = playerManager.TakeDamage(enemyUnit.DamageCheck());
         hudController.UpdatePlayerHp();
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
 
         if (isDead)

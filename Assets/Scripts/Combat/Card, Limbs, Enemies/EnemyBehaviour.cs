@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] ParticleSystem[] particle;
 
 
-
+    [SerializeField] HUDController hudController;
 
 
     public Transform enemyBattleStation;
@@ -70,6 +70,15 @@ public class EnemyBehaviour : MonoBehaviour
         firePoint1 = enemyPrefab.transform.Find("FirePoint1");
         firePoint2 = enemyPrefab.transform.Find("FirePoint2");
         buffPoint = enemyPrefab.transform.Find("BuffPoint");
+    }
+
+    private void Update()
+    {
+        if( Input.GetKeyDown("k") )
+        {
+            currentHp -= 5;
+            hudController.UpdateEnemyHp();
+        }
     }
 
     void GetStats(){

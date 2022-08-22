@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class PlayerCheckpoints : MonoBehaviour
 {
-    
 
+    public bool canMove = true;
 
     public GameObject[] checkpoints;
-    [SerializeField] int current;
+    public int current;
     float rotSpeed;
     public float speed;
     float WPradius = 1;
@@ -18,10 +18,8 @@ public class PlayerCheckpoints : MonoBehaviour
 
     SingletonDataStorage singletonDataStorage;
 
-    private void Start()
+    private void Awake()
     {
-        
-        
 
         singletonDataStorage = GameObject.Find("Singleton").GetComponent<SingletonDataStorage>();
         Debug.Log(singletonDataStorage.overworldCheckpoint);
@@ -35,8 +33,7 @@ public class PlayerCheckpoints : MonoBehaviour
     void Update()
     {
         
-
-        if (Input.GetKeyDown("space")) 
+        if (Input.GetKeyDown("space") && canMove) 
         {
             if (Vector3.Distance(checkpoints[current].transform.position, transform.position) < WPradius)
             {

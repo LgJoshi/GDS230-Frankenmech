@@ -11,6 +11,7 @@ public class SingletonDataStorage : MonoBehaviour
     public int enemyType;
 
     public int playerHp;
+    public int playerMaxHp;
 
     public List<int>[] playerDeckLoadoutIds = new List<int>[3];
     //3rd slot is for legs
@@ -58,7 +59,8 @@ public class SingletonDataStorage : MonoBehaviour
         playerDeckLoadoutIds[2].Add(4);
         playerDeckLoadoutIds[2].Add(1);
 
-        playerHp = 50;
+        playerMaxHp = 80;
+        playerHp = playerMaxHp;
     }
 
     public void ChangeLimb(int limbInt, int newLimbId, List<int> newCardIds )
