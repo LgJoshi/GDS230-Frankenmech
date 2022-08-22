@@ -65,7 +65,7 @@
 				{
 					"name": "Auto Pistol",
 					"type": "buffAttack",
-					"probability": 2,
+					"probability": 1,
 					"mainValue": 1,
 					"subValue": 3,
 					"buffValue": 1,
@@ -85,7 +85,7 @@
 				{
 					"name": "Buff",
 					"type": "buff",
-					"probability": 50,
+					"probability": 1,
 					"mainValue": 2,
 					"subValue": 2,
 					"buffValue": 1,

@@ -91,6 +91,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         playerManager.UpdateBlockDodge();
+        playerManager.DiscardCards();
 
         bool isDead = enemyUnit.TakeDamage(playerManager.MechAttackCheck());
 
@@ -182,7 +183,7 @@ public class BattleSystem : MonoBehaviour
 
         if( state == BattleState.WON)
         {
-            hudController.ChangeDialogueText("You won!");
+            hudController.ChangeDialogueText("");
             GameObject.Find("Singleton").GetComponent<SingletonDataStorage>().playerHp = playerManager.playHP;
 
             LootMenuUI.SetActive(true);
@@ -195,15 +196,10 @@ public class BattleSystem : MonoBehaviour
         }
         if( state == BattleState.LOST )
         {
-            hudController.ChangeDialogueText("You lost!");
+            hudController.ChangeDialogueText("");
             m_MyAudioSource.Stop();
             SceneManager.LoadScene("Death_Scene");
         }
-
-        
-        
-
-
 
 
     }
@@ -224,12 +220,6 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-    void SetFirePoint()
-    {
-
-    }
-
-   
 
 
 }

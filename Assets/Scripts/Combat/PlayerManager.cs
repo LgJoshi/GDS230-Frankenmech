@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start() {
 
-        singletonDataStorage = GameObject.FindObjectOfType<SingletonDataStorage>();
+        singletonDataStorage = GameObject.Find("Singleton").GetComponent<SingletonDataStorage>();
 
         limbsId = singletonDataStorage.playerLimbLoadoutIds;
 
@@ -85,17 +85,35 @@ public class PlayerManager : MonoBehaviour
         playHP = singletonDataStorage.playerHp;
     }
 
-    void DrawCards()
+    public void DiscardCards()
     {
         //discards the hand to the discard pile
-        for (int i = spawnedCards.Count; i > 0; i--)
+        for( int i = spawnedCards.Count;i > 0;i-- )
         {
             //delete card objects
             GameObject.Destroy(spawnedCards[i - 1]);
             spawnedCards.RemoveAt(i - 1);
 
             //move card from hand to discard
-            if (playerHand.Count != 0)
+            if( playerHand.Count != 0 )
+            {
+                playerDiscard.Add(playerHand[i - 1]);
+                playerHand.RemoveAt(i - 1);
+            }
+        }
+    }
+    
+    void DrawCards()
+    {
+        //discards the hand to the discard pile
+        for( int i = spawnedCards.Count;i > 0;i-- )
+        {
+            //delete card objects
+            GameObject.Destroy(spawnedCards[i - 1]);
+            spawnedCards.RemoveAt(i - 1);
+
+            //move card from hand to discard
+            if( playerHand.Count != 0 )
             {
                 playerDiscard.Add(playerHand[i - 1]);
                 playerHand.RemoveAt(i - 1);

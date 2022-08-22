@@ -6798,7 +6798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc24b25a04829542ac4dd74ac9eb911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playHP: 50
+  playHP: 69
   maxHp: 50
   maxEnergy: 3
   currentEnergy: 3
@@ -6979,6 +6979,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851689865571532803, guid: aa67324e14a1af54d8cd09b9545b95ff, type: 3}
+      propertyPath: playerHp
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 851689865571532803, guid: aa67324e14a1af54d8cd09b9545b95ff, type: 3}
       propertyPath: enemyType
       value: 2
