@@ -7,13 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6866383372044081032, guid: a1a2972afcc6a7f43b8c5d6693c33164, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866383372044081036, guid: a1a2972afcc6a7f43b8c5d6693c33164, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 2.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6866383372044081038, guid: a1a2972afcc6a7f43b8c5d6693c33164, type: 3}
       propertyPath: SizeModule.curve.scalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6866383372063182572, guid: a1a2972afcc6a7f43b8c5d6693c33164, type: 3}
       propertyPath: m_Name
-      value: Enemy_Charge_Level1
+      value: Enemy_Charge_Level1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6866383372063478472, guid: a1a2972afcc6a7f43b8c5d6693c33164, type: 3}
       propertyPath: m_LocalScale.x

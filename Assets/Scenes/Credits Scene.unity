@@ -260,9 +260,11 @@ MonoBehaviour:
   m_text: "Design & Production - \r\n\r\n\n\n\nProgramming - \r\n\r\n\n\n\nLevel
     Design -\r\n\n\r\nMech 3D Models - \r\n\r\nUI & 2D Art - \r\n\r\nParticle Effects
     - \r\n\r\n\nSpecial Thanks - \r\n\r\n\n\n\n3D Environment from \n\nSci-Fi / Industrial
-    - \n\n\n\nAudio from\n\r\nBattle Music -\nOverworld Music -\nRocket Launch -\nHit
-    Damage -\nElectricity Damage -\nBurning Sound -\n \r\n\n\r\nParticles from \n\r\nProcedural
-    Fire - \r\nCartoon FX - \r\n"
+    - \n\n\n\nAudio from\n\r\n                                                        
+    Music\n\nBattle Music -\nOverworld Music -\nMenu Music - \nVictory Music -\nGame
+    Over Music -\nCredits Music - \n\n                                                   
+    SFX\n\nRocket Launch -\nHit Damage -\nElectricity Damage -\nBurning Sound -\n
+    \r\n\n\r\nParticles from \n\r\nProcedural Fire - \r\nCartoon FX - \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
   m_sharedMaterial: {fileID: 2310697500558127121, guid: 1f7365e721c834e42afd88587a0b8c9f, type: 2}
@@ -586,9 +588,22 @@ MonoBehaviour:
     Freesound.com
 
 
+
+
     furbyguy
 
     furbyguy
+
+    Bertsz
+
+    frankum
+
+    headphonesvocal
+
+    Warlightwolf
+
+
+
 
     Jarusca
 
@@ -782,7 +797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1117}
+  m_AnchoredPosition: {x: 0, y: -1528}
   m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016018196
@@ -836,6 +851,7 @@ GameObject:
   - component: {fileID: 1273549582}
   - component: {fileID: 1273549581}
   - component: {fileID: 1273549580}
+  - component: {fileID: 1273549585}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -939,6 +955,102 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!82 &1273549585
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273549579}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9c8a2150d4772514da214b87f22c66d4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.486
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1394457921
 GameObject:
   m_ObjectHideFlags: 0
