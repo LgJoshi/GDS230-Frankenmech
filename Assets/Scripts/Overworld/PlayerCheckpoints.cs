@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerCheckpoints : MonoBehaviour
 {
+    
+
+
     public GameObject[] checkpoints;
     [SerializeField] int current;
     float rotSpeed;
@@ -16,6 +20,9 @@ public class PlayerCheckpoints : MonoBehaviour
 
     private void Start()
     {
+        
+        
+
         singletonDataStorage = GameObject.Find("Singleton").GetComponent<SingletonDataStorage>();
         Debug.Log(singletonDataStorage.overworldCheckpoint);
         current = singletonDataStorage.overworldCheckpoint;
@@ -27,6 +34,8 @@ public class PlayerCheckpoints : MonoBehaviour
 
     void Update()
     {
+        
+
         if (Input.GetKeyDown("space")) 
         {
             if (Vector3.Distance(checkpoints[current].transform.position, transform.position) < WPradius)
