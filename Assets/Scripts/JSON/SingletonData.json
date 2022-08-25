@@ -1,0 +1,33 @@
+{
+	"singletonDataClass": {
+		"playerMaxHp": 80, 
+		"limbIds": [
+			1,
+			2,
+			11
+		],
+		"limbDecks": [
+			{
+				"limbCards": [
+					1,
+					1,
+					1
+				]
+			},
+			{
+				"limbCards": [
+					1,
+					1,
+					1,
+					2
+				]
+			},{
+				"limbCards": [
+					1,
+					1,
+					1
+				]
+			}
+		]
+	}
+}
